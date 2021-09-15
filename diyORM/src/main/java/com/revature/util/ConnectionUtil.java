@@ -1,5 +1,7 @@
 package com.revature.util;
 
+import java.sql.Connection;
+
 public class ConnectionUtil {
 	
 	// Idea: Maybe you could use this to grab JDBC configuration details 
@@ -9,5 +11,8 @@ public class ConnectionUtil {
 	
 	// Another idea: set up connection pool here....
 	// Research DATASOURCE in custom ORM's
+	public void getConnection() {
+		Connection con = DBCPDataSource.getConnection();
+	}
 	
 }

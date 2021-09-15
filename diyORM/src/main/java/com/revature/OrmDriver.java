@@ -1,15 +1,21 @@
 package com.revature;
+import java.sql.SQLException;
 import java.util.List;
 
 import com.revature.dummymodels.Test;
 import com.revature.util.ColumnField;
 import com.revature.util.Configuration;
+import com.revature.util.DBCPDataSource;
 import com.revature.util.MetaModel;
 
 public class OrmDriver {
 
 	public static void main(String[] args) {
 		Configuration cfg = new Configuration();
+		DBCPDataSource ds = new DBCPDataSource();
+	
+		ds.getConnection();
+		
 		//in our configuration object we want to add annotated class, without ever having to instantiate them
 		// Hibernate maps class to apply reflection to (introspect)
 		
@@ -25,7 +31,6 @@ public class OrmDriver {
 			for(ColumnField cf : columnFields) {
 				System.out.printf("Found a column field named %s of type %s, which maps to the DB column %s%n",cf.getName(),cf.getType(),cf.getColumnName());
 			}
-			
 			
 		}
 	}
