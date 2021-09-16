@@ -1,20 +1,19 @@
 package com.revature;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
 import com.revature.dummymodels.Test;
 import com.revature.util.ColumnField;
 import com.revature.util.Configuration;
-import com.revature.util.DBCPDataSource;
+import com.revature.util.ConnectionFactory;
 import com.revature.util.MetaModel;
 
 public class OrmDriver {
 
 	public static void main(String[] args) {
 		Configuration cfg = new Configuration();
-		DBCPDataSource ds = new DBCPDataSource();
-	
-		ds.getConnection();
+		Connection cn = ConnectionFactory.getConnection();
 		
 		//in our configuration object we want to add annotated class, without ever having to instantiate them
 		// Hibernate maps class to apply reflection to (introspect)

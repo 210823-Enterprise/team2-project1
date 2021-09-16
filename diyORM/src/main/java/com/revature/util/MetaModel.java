@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.revature.annotations.Column;
 import com.revature.annotations.Entity;
+import com.revature.annotations.Id;
 
 public class MetaModel<T> {
 	
@@ -41,6 +42,17 @@ public class MetaModel<T> {
 	}
 	
 	//public IdField getPrimaryKey() .. Need to create the IdField class..
+    public IdField getPrimaryKey() {
+
+        Field[] fields = clazz.getDeclaredFields();
+        for (Field field : fields) {
+            Id primaryKey = field.getAnnotation(Id.class);
+            if (primaryKey != null) {
+                return new IdField(field);
+            }
+        }
+        throw new RuntimeException("Did not find a field annotated with @Id in: " + clazz.getName());
+    }
 	
 	public List<ColumnField> getColumns() {
 		

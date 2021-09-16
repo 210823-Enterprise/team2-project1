@@ -11,8 +11,8 @@ public class ConnectionUtil {
 	
 	// Another idea: set up connection pool here....
 	// Research DATASOURCE in custom ORM's
-	public void getConnection() {
-		Connection con = DBCPDataSource.getConnection();
+	public static void getConnection() {
+		Connection con = ConnectionFactory.getConnection();
 	}
 	
 }

@@ -9,36 +9,41 @@ import java.util.Properties;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.log4j.Logger;
 
-public class DBCPDataSource {
+public class ConnectionFactory {
 	private static BasicDataSource ds = new BasicDataSource();
-    static Configuration config = new Configuration();
-    private static Logger log = Logger.getLogger(DBCPDataSource.class);
+    private static Logger log = Logger.getLogger(ConnectionFactory.class);
+    private static final ConnectionFactory connection_factory = new ConnectionFactory();
     static {
+    	try {
+			Class.forName("org.postgresql.Driver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    private ConnectionFactory(){
     	Properties prop = new Properties();
 		
-		String url = "";
-		String username = "";
-		String password = "";
-		
-		
 		try {
-			prop.load(new FileReader("C:\\Users\\ryanm\\Desktop\\Project_0\\project-0-ryan-mcomber\\src\\main\\resources\\application.properties"));
+			prop.load(new FileReader("src/main/resources/application.properties"));
 			ds.setUrl(prop.getProperty("url"));
 			ds.setUsername(prop.getProperty("username"));
 			ds.setPassword(prop.getProperty("password"));
+	        ds.setMinIdle(5);
+	        ds.setMaxIdle(10);
+	        ds.setDefaultAutoCommit(false);
+	        ds.setMaxOpenPreparedStatements(100);
 			
-			log.info("Database Connection Established");
 		} catch (IOException e) {
 			log.error("Cannout locate application.properties file.");
 			e.printStackTrace();
 		} 
-        ds.setMinIdle(5);
-        ds.setMaxIdle(10);
-        ds.setMaxOpenPreparedStatements(100);
+
     }
     
     public static Connection getConnection() {
         try {
+        	log.info("Database Connection Established");
 			return ds.getConnection();
 		} catch (SQLException e) {
 			log.error("Cannot establish database connection");
@@ -46,6 +51,12 @@ public class DBCPDataSource {
         return null;
     }
     
-    public DBCPDataSource(){ }
+    public static ConnectionFactory getInstance() {
+    	return connection_factory;
+    }
+    
+  
+    
+    
 
 }
