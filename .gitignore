@@ -22,3 +22,14 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 /.metadata/
+<<<<<<< Updated upstream
+=======
+diyORM/.classpath
+>>>>>>> Stashed changes
+diyORM/target/classes/META-INF/MANIFEST.MF
+diyORM/target/classes/META-INF/maven/com.revature/diyORM/pom.properties
+demo/.classpath
+demo/target/m2e-wtp/web-resources/META-INF/maven/com.revature/T2-Demo/pom.properties
+diyORM/.classpath
+diyORM/target/classes/META-INF/MANIFEST.MF
+diyORM/target/classes/META-INF/maven/com.revature/diyORM/pom.properties
