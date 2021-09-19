@@ -29,16 +29,15 @@ public class RequestHelper {
 		// 1. set the content type to return text to the browser
 		response.setContentType("text/html");
 		
-		// 2. Get a list of all Userse in the Database
-		List<User> allEmps = userv.findAll(); // create this method in the service layer
+		// 2. Get a list of all Users in the Database
+		List<User> users = userv.findAll(); // create this method in the service layer
 		
 		// 3. Turn the list of Java Objects into a JSON string (using Jackson Databind Object Mapper).
-		String json = om.writeValueAsString(allEmps);
+		String json = om.writeValueAsString(users);
 		
 		// 4. Use a Print Writer to write the objects to the response body seen in the browser
 		PrintWriter out = response.getWriter();
-		out.println(json);
-		
+		out.println(json);	
 	}
 	
 	// This method will process a post request, so we can't capture parameters from the request like we would in a GET request
@@ -72,7 +71,7 @@ public class RequestHelper {
 		log.info("User attempted to login with username" + username);
 		
 		// call the confirmLogin() method and fetch the actual User object from the DB
-		User u = userv.confirmLogin(username, password);
+		User u = null; // TODO = userv.confirmLogin(username, password);
 		
 		// return the user found and show the object in the browser
 		if (u != null) {
@@ -104,5 +103,17 @@ public class RequestHelper {
 		 * Remember that the forward() method does NOT produce a new request,
 		 * it just forwards it to a new resource, and we also maintain the URL
 		*/
+	}
+	public static void processNewUser(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+	
+			String username = request.getParameter("username");
+			String password = request.getParameter("password");
+			
+			User u = new User(0, username, password);
+			
+			HttpSession session = request.getSession();
+			
+			// 4. and send the custom villain to the session
+			session.setAttribute("the-user", u);
 	}
 }

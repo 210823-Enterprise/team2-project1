@@ -2,14 +2,29 @@ package com.revature.models;
 
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table
 public class User {
 
-	private int id; //primary key
+	@Id
+	@Column
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
+	@Column
 	private String username;
+	@Column
 	private String password;
+	
+	//Taken from joined table or queried from accounts
 	private List<Account> accounts;
 
-	// Constructors
 	public User() {
 		super();
 	}

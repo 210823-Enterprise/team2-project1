@@ -7,18 +7,33 @@ import com.revature.models.User;
 
 public class UserService {
 
-	public UserService(UserDao userDao) {
-		// TODO Auto-generated constructor stub
+	private UserDao udao;
+
+	public UserService(UserDao dao) {
+		super();
+		this.udao = dao;
+	}
+
+	public int insert(User u) {
+
+		return udao.insert(u);
+
+	}
+
+	public boolean update(User u) {
+
+		return udao.update(u);
+
+	}
+
+	public boolean delete(User u) {
+
+		return udao.delete(u);
+
 	}
 
 	public List<User> findAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		return udao.findAll();
 
-	public User confirmLogin(String username, String password) {
-		// TODO Auto-generated method stub
-		return null;
 	}
-
 }
