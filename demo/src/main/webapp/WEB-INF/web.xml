@@ -13,8 +13,7 @@
   
   <servlet-mapping>
     <servlet-name>FrontController</servlet-name>
-    <url-pattern>/login</url-pattern>
-    <url-pattern>/employees</url-pattern>
+    <url-pattern>/users</url-pattern>
     <url-pattern>/error</url-pattern>
   </servlet-mapping>
   
