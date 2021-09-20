@@ -139,6 +139,6 @@ public class MetaConstructor {
 		final Constructor<?> constructor = getConstructor(clazz);
 		final String Entity_name = getEntityName(clazz);
 		final String pk = getIdName(clazz);
-		// TODO: models.put(class_name, new MetaModel<?>(clazz, getters, setters, constructor, Entity_name, pk));
+		models.put(class_name, new MetaModel(clazz, getters, setters, constructor, Entity_name, pk));
 	}
 }
