@@ -2,18 +2,23 @@ package com.revature.objectmapper;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.sql.Date;
 import java.sql.ParameterMetaData;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+
+import org.apache.log4j.Logger;
 
 public class ObjectMapper {
+	
+	private static Logger log = Logger.getLogger(ObjectMapper.class);
 	
 	protected void setStatement(PreparedStatement pstmt, ParameterMetaData pd, Method getter, Object obj, int index) {
 			try {
 				setPreparedStatementByType(pstmt,pd.getParameterTypeName(index),String.valueOf(getter.invoke(obj)),index);
 			} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				log.error("Encoutered error " + e + " at method setStatement()");
 			}
 	}
 	
@@ -39,13 +44,28 @@ public class ObjectMapper {
 		case "double":
 			pstmt.setDouble(index, Double.parseDouble(input));
 			break;
+		case "long":
+			pstmt.setLong(index, Long.parseLong(input));
+			break;
+		case "float":
+			pstmt.setFloat(index, Float.parseFloat(input));
+			break;
+		case "byte":
+			pstmt.setByte(index, Byte.parseByte(input));
+			break;
+		case "Timestamp":
+			pstmt.setTimestamp(index, Timestamp.valueOf(input));
+			break;
+		case "date":
+			pstmt.setDate(index, Date.valueOf(input));
+			break;
 			
-		//may want to account for others. Timestamp, float, etc...
+		// TODO fill out all remaining possible database types
 			
 		}
 		
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.error("Encoutered error " + e + " at method setPreparedStatement()");
 		}
 		
 		
