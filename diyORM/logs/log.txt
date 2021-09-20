@@ -1,6 +1,4 @@
 2021-09-15 14:53:58 INFO  revature.util.DBCPDataSource:30} - Database Connection Established
 2021-09-16 09:33:31 INFO  revature.util.DBCPDataSource:41} - Database Connection Established
 2021-09-16 09:41:20 INFO  revature.util.ConnectionFactory:41} - Database Connection Established
-2021-09-16 13:31:22 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
-2021-09-16 13:31:23 ERROR revature.util.ConnectionFactory:49} - Cannot establish database connection
-2021-09-16 13:32:30 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+
