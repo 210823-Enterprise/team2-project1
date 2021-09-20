@@ -1,3 +1,4 @@
+  
 package com.revature.objectmapper;
 
 import java.lang.reflect.InvocationTargetException;
@@ -10,11 +11,13 @@ import java.sql.Timestamp;
 
 import org.apache.log4j.Logger;
 
-public class ObjectMapper {
+public abstract class ObjectMapper {
+
 	
 	private static Logger log = Logger.getLogger(ObjectMapper.class);
 	
 	protected void setStatement(PreparedStatement pstmt, ParameterMetaData pd, Method getter, Object obj, int index) {
+    
 			try {
 				setPreparedStatementByType(pstmt,pd.getParameterTypeName(index),String.valueOf(getter.invoke(obj)),index);
 			} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | SQLException e) {
@@ -22,16 +25,19 @@ public class ObjectMapper {
 			}
 	}
 	
+	
 	/**
-	 * @param prepared statement to set
+	 * @param prepares  statement to set
 	 * @param parameter type
-	 * @param input that represents the value to be placed in the prepared statement
-	 * @param index to place the value at
+	 * @param input     that represents the value to be placed in the preapred
+	 *                  statement
+	 * @param index     to plave the value at
 	 */
 	protected void setPreparedStatementByType(PreparedStatement pstmt, String type, String input, int index) {
-		
-		//find some way to evaluate the Java type of the type param
+
+		// find some way to evalutate the Java type of the type param
 		try {
+    
 		switch(type) {
 		case "text":
 		case "String":
@@ -67,8 +73,7 @@ public class ObjectMapper {
 		} catch (SQLException e) {
 			log.error("Encoutered error " + e + " at method setPreparedStatement()");
 		}
-		
-		
+
 	}
 
 }

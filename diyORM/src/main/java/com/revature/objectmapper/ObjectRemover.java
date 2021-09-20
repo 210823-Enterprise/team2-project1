@@ -8,30 +8,41 @@ import java.sql.SQLException;
 
 import com.revature.util.MetaModel;
 
-public class ObjectRemover extends ObjectMapper {
+
+public class ObjectRemover extends ObjectMapper{
 	
 	public boolean removeObjectFromDb(Object obj, Connection conn) {
 		
-		MetaModel<?> model = MetaModel.of(obj.getClass()); //use this to create an instance of the object
-		String primaryKey = model.getPrimaryKey().getName();
-		String sql = "DELETE from "+model.getSimpleClassName()+" where "+primaryKey+"= ?"; //TODO: create some type of method that return the table name in MetaModel
+		MetaModel<?> model = MetaModel.of(obj.getClass()); // use this to creaet an instance of the object
+		
+		
+		String primaryKey = model.getPrimaryKey().getName(); // change this to IdField
+		String sql 		  = "DELETE from " + model.getSimpleClassName() + " where " + primaryKey + "= ?"; // create some type of method that returns the table name in MetaModel;
+		
+			PreparedStatement pstmt;
+		// we want to grab meta data from this statement
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(sql);
-			// we want to grab metadata from this statement 
+			 pstmt =  conn.prepareStatement(sql);
+			 pstmt.executeUpdate();
 			ParameterMetaData pd = pstmt.getParameterMetaData();
-			// then call a custom setStatement method
-			//setStatement(pstmt,pd,new Object(), 1);
-			pstmt.executeUpdate();
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
 		return false;
+		
+		// instead of Method, maybe pass in a hashmap containing info about the object that you
+		//setStatement(pstmt, pd, obj, 1);
+		
+		//ObjectCache class...
+		// then call acustom setStatement method	
+		
 	}
-	
-	
+
+	public static ObjectRemover getInstance() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
