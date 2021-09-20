@@ -6,23 +6,39 @@
         <meta name="author" content="Jacen Wyke"> 
         <link href="bootstrap_theme/bootstrap.css" rel="stylesheet" type="text/css"> 
         <link rel="stylesheet" href="blocks.css"> 
-        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/styles.css"> 
+        <script src="scripts.js">  
+        </script>         
     </head>     
     <body> 
-        <nav class="bg-dark bg-gradient mt-1 navbar navbar-dark opacity-85 shadow"> 
+        <nav class="bg-dark bg-gradient navbar navbar-dark  opacity-85 shadow"> 
             <div id="top-nav" class="container-fluid"> 
                 <span class="h4 navbar-text text-white">T2-ORM Framework</span> 
                 <span class="fs-5 navbar-text text-white">Nathan Lee  -  Ryan McOmber  -  Jacen Wyke</span> 
             </div>             
-        </nav>         
-        <!--  This button will trigger the employees url pattern ->  -->         
-        <br/> 
-        <div class="btn"> 
-            <button>Insert</button>             
-            <button>Update</button>             
-            <button>Delete</button>             
+        </nav>
+        <div class="align-items-stretch container-fluid d-flex flex-wrap g-5 gap-5 min-vh-100">
+            <div class="background-cover bg-gradient bg-secondary flex-nowrap gap-5 gx-5 row row-cols-2">
+                <div class="bg-gradient bg-secondary">
+                    <h3 class="border-bottom border-light mt-5 rounded text-center text-white">Operations:</h3>
+                    <div class="btn"> 
+                        <button>Insert</button>                         
+                        <button>Update</button>                         
+                        <button>Delete</button>                         
+                    </div>
+                    <h3 class="border-bottom border-light mt-5 rounded text-center text-white">Connections:</h3>
+                    <h4 class="fst-italic text-center text-light">#6</h4>
+                    <h3 class="border-bottom border-light mt-5 rounded text-center text-white">Database:</h3>
+                    <h4 class="fst-italic text-center text-light">Postgres&nbsp;42.2.5</h4> 
+                </div>
+                <div class="col-md-4"> 
+                    <h3 class="border-bottom border-light mt-5 rounded text-center text-white">Accounts:</h3> 
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p> 
+                </div>
+            </div>
         </div>         
-        <nav class="bg-dark bg-gradient fixed-bottom mb-1 mt-1 navbar navbar-dark opacity-75 shadow text-center"> 
+        <!--  This button will trigger the employees url pattern ->  -->         
+        <nav class="bg-dark bg-gradient navbar navbar-dark opacity-75 shadow text-center"> 
             <div class="container-fluid justify-content-center"> 
                 <span class="fst-italic navbar-text text-white"><h6 class="fst-normal text-decoration-none">&copy;&nbsp; 2021.&nbsp; All Rights Reserved. Revature LLC.</h6></span> 
             </div>             

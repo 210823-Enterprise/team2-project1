@@ -19,19 +19,22 @@ public class Account {
 	private int id;
 	
 	@Column
-	private double balance;
+	private String accountName;
 	@Column
 	private int ownerId;
+	@Column
+	private double balance;
 
 	public Account() {
 		super();
 	}
 	
-	public Account(int id, double balance, int ownerId) {
+	public Account(int id, String accountName, int ownerId, double balance) {
 		super();
 		this.id = id;
 		this.balance = balance;
 		this.ownerId = ownerId;
+		this.accountName = accountName;
 	}
 
 	public int getPrimaryOwnerId() {
@@ -58,9 +61,25 @@ public class Account {
 		this.balance = balance;
 	}
 
+	public String getAccountName() {
+		return accountName;
+	}
+
+	public void setAccountName(String accountName) {
+		this.accountName = accountName;
+	}
+
+	public int getOwnerId() {
+		return ownerId;
+	}
+
+	public void setOwnerId(int ownerId) {
+		this.ownerId = ownerId;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(balance, id, ownerId);
+		return Objects.hash(accountName, balance, id, ownerId);
 	}
 
 	@Override
@@ -72,14 +91,15 @@ public class Account {
 		if (getClass() != obj.getClass())
 			return false;
 		Account other = (Account) obj;
-		return Double.doubleToLongBits(balance) == Double.doubleToLongBits(other.balance) && id == other.id
+		return Objects.equals(accountName, other.accountName)
+				&& Double.doubleToLongBits(balance) == Double.doubleToLongBits(other.balance) && id == other.id
 				&& ownerId == other.ownerId;
 	}
 
 	@Override
 	public String toString() {
-		return "Account [id=" + id + ", balance=" + balance + ", ownerId=" + ownerId + "]";
+		return "Account [id=" + id + ", accountName=" + accountName + ", ownerId=" + ownerId + ", balance=" + balance
+				+ "]";
 	}
-
 	
 }

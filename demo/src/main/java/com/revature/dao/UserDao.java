@@ -8,6 +8,11 @@ import org.hibernate.Transaction;
 import com.revature.models.User;
 import com.revature.util.HibernateUtil;
 
+/**
+ * This class is currently not in use.
+ * @author jbwyk
+ *
+ */
 public class UserDao {
 
 	public int insert(User u) {
