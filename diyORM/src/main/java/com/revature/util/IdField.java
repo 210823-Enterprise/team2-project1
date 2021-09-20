@@ -15,10 +15,15 @@ public class IdField {
         }
         this.field = field;
     }
+    
+    public int get(Object obj) throws IllegalArgumentException, IllegalAccessException {
+    	return field.getInt(obj);
+    }
 
     public String getName() {
         return field.getName();
     }
+   
 
     public Class<?> getType() {
         return field.getType();
