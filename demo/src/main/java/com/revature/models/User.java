@@ -9,6 +9,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * This class is currently not in use.
+ * @author jbwyk
+ *
+ */
+
 @Entity
 @Table
 public class User {

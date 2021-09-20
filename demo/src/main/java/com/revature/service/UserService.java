@@ -5,6 +5,11 @@ import java.util.List;
 import com.revature.dao.UserDao;
 import com.revature.models.User;
 
+/**
+ * This class is currently not in use.
+ * @author jbwyk
+ *
+ */
 public class UserService {
 
 	private UserDao udao;
