@@ -19,6 +19,8 @@ public class ObjectMapper {
 
 	private static final ObjectMapper objectMapper = new ObjectMapper();
 	private static final ObjectRemover objectRemover = new ObjectRemover();
+	private static final ObjectSaver objectSaver = new ObjectSaver();
+	private static final ObjectGetter objectGetter = new ObjectGetter();
 	private static Logger log = Logger.getLogger(ObjectMapper.class);
 	protected void setStatement(PreparedStatement pstmt, ParameterMetaData pd, Method getter, Object obj, int index) {
     
