@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.revature.dummymodels.Test;
+import com.revature.objectmapper.ObjectMapper;
 import com.revature.util.ColumnField;
 import com.revature.util.Configuration;
 import com.revature.util.ConnectionFactory;
@@ -14,6 +15,9 @@ public class OrmDriver {
 	public static void main(String[] args) {
 		Configuration cfg = new Configuration();
 		Connection cn = ConnectionFactory.getConnection();
+		Test test = new Test(1, "ryan","pass");
+		ObjectMapper om = new ObjectMapper();
+		System.out.println(om.removeObjectFromDb(test, cn));
 		
 		//in our configuration object we want to add annotated class, without ever having to instantiate them
 		// Hibernate maps class to apply reflection to (introspect)

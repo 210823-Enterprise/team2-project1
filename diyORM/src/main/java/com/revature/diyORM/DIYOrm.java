@@ -4,34 +4,42 @@ import java.sql.Connection;
 
 
 import com.revature.util.ConnectionFactory;
+import com.revature.objectmapper.ObjectMapper;
 import com.revature.objectmapper.ObjectRemover;
 
 public class DIYOrm {
 	
 	final private static DIYOrm diyorm = new DIYOrm();
 	private final Connection conn;
-	private final ObjectRemover obj_remover;
+	private final ObjectMapper obj_mapper;
 	// obj getter, etc.....
 	
 	private DIYOrm() {
 		conn = ConnectionFactory.getInstance().getConnection();
-		obj_remover =   ObjectRemover.getInstance();
+		obj_mapper =   ObjectMapper.getInstance();
 		
 		
 	}
 	
-	// return a a static instanc of this singleton class
+
+	
+	// return a a static instance of this singleton class
 	public static DIYOrm getInstance() {
 		return diyorm;
 	}
 	
+	//Adds a class to the ORM. This is the method to use to declare a Class is an object inside of the database.
+	public boolean addClass(final Class<?> clazz) {
+		return false;
+	}
 	
+
 	
 	// when someone wants to delete an object from their database
-	// DIYORM.deleteObjFromDB
+	// DIYOrm.deleteObjFromDB
 	public boolean deleteObjFromDB(Object obj) {
 		
-		return obj_remover.removeObjectFromDb(obj, conn);
+		return obj_mapper.removeObjectFromDb(obj, conn);
 		
 	}
 

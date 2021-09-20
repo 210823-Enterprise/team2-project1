@@ -1,7 +1,10 @@
 package com.revature.util;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -33,6 +36,24 @@ public class MetaModel<T> {
 		
 	}
 	
+	public MetaModel(Class<T> clazz, IdField primarykeyField, List<ColumnField> columnFields,
+			List<ForeignKeyField> foreignKeyFields) {
+		super();
+		this.clazz = clazz;
+		this.primarykeyField = primarykeyField;
+		this.columnFields = columnFields;
+		this.foreignKeyFields = foreignKeyFields;
+	}
+
+	public MetaModel(Class<T> clazz, HashMap<String, Method> getters, HashMap<Method, String[]> setters,
+			Constructor<?> constructor, String entity_name, String pk) {
+		// TODO Auto-generated constructor stub
+		super();
+		this.clazz = clazz;
+		
+		
+	}
+
 	// class name is com.revature.MyClass
 	public String getClassName() {
 		return clazz.getName();
