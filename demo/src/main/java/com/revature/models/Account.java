@@ -2,41 +2,44 @@ package com.revature.models;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table
 public class Account {
 
-	private int id; // primary key
+	@Id
+	@Column
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
+	
+	@Column
 	private double balance;
-	private int primaryOwnerId;
-	private int secondaryOwnerId;
-	private boolean isActive;
+	@Column
+	private int ownerId;
 
 	public Account() {
 		super();
 	}
 	
-	public Account(int id, double balance, int primaryOwnerId, int secondaryOwnerId, boolean isActive) {
+	public Account(int id, double balance, int ownerId) {
 		super();
 		this.id = id;
 		this.balance = balance;
-		this.primaryOwnerId = primaryOwnerId;
-		this.secondaryOwnerId = secondaryOwnerId;
-		this.isActive = isActive;
+		this.ownerId = ownerId;
 	}
 
 	public int getPrimaryOwnerId() {
-		return primaryOwnerId;
+		return ownerId;
 	}
 
 	public void setPrimaryOwnerId(int primaryOwnerId) {
-		this.primaryOwnerId = primaryOwnerId;
-	}
-
-	public int getSecondaryOwnerId() {
-		return secondaryOwnerId;
-	}
-
-	public void setSecondaryOwnerId(int secondaryOwnerId) {
-		this.secondaryOwnerId = secondaryOwnerId;
+		this.ownerId = primaryOwnerId;
 	}
 
 	public int getId() {
@@ -55,26 +58,9 @@ public class Account {
 		this.balance = balance;
 	}
 
-	public boolean isActive() {
-		return isActive;
-	}
-
-	public void setActive(boolean isActive) {
-		this.isActive = isActive;
-	}
-
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		long temp;
-		temp = Double.doubleToLongBits(balance);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + id;
-		result = prime * result + (isActive ? 1231 : 1237);
-		result = prime * result + primaryOwnerId;
-		result = prime * result + secondaryOwnerId;
-		return result;
+		return Objects.hash(balance, id, ownerId);
 	}
 
 	@Override
@@ -86,18 +72,14 @@ public class Account {
 		if (getClass() != obj.getClass())
 			return false;
 		Account other = (Account) obj;
-		if (Double.doubleToLongBits(balance) != Double.doubleToLongBits(other.balance))
-			return false;
-		if (id != other.id)
-			return false;
-		if (isActive != other.isActive)
-			return false;
-		if (primaryOwnerId != other.primaryOwnerId)
-			return false;
-		if (secondaryOwnerId != other.secondaryOwnerId)
-			return false;
-		return true;
+		return Double.doubleToLongBits(balance) == Double.doubleToLongBits(other.balance) && id == other.id
+				&& ownerId == other.ownerId;
 	}
-	
 
+	@Override
+	public String toString() {
+		return "Account [id=" + id + ", balance=" + balance + ", ownerId=" + ownerId + "]";
+	}
+
+	
 }

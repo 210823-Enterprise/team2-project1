@@ -8,6 +8,7 @@ import java.sql.SQLException;
 
 import com.revature.util.MetaModel;
 
+
 public class ObjectRemover extends ObjectMapper{
 	
 	public boolean removeObjectFromDb(Object obj, Connection conn) {
@@ -24,6 +25,7 @@ public class ObjectRemover extends ObjectMapper{
 			 pstmt =  conn.prepareStatement(sql);
 			 pstmt.executeUpdate();
 			ParameterMetaData pd = pstmt.getParameterMetaData();
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -34,11 +36,7 @@ public class ObjectRemover extends ObjectMapper{
 		//setStatement(pstmt, pd, obj, 1);
 		
 		//ObjectCache class...
-		// then call acustom setStatement method
-		
-		
-		
-		
+		// then call acustom setStatement method	
 		
 	}
 
@@ -46,8 +44,5 @@ public class ObjectRemover extends ObjectMapper{
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	
-	
 
 }

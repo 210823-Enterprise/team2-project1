@@ -15,10 +15,7 @@ public class FrontController extends HttpServlet {
 		final String URI = request.getRequestURI().replace("/FrontControllerDemo/", "");
 		
 		switch(URI) {
-		case "login": 
-			RequestHelper.processLogin(request, response);
-			break;
-		case "employees": // query the DB and return a list of all employees
+		case "users":
 			RequestHelper.processUsers(request, response);
 			break;
 		case "error":
@@ -36,8 +33,17 @@ public class FrontController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+
+		final String URI = request.getRequestURI().replace("/FrontControllerDemo/", "");
+		
+		switch(URI) {
+		case "newuser":
+			RequestHelper.processNewUser(request, response);
+			break;
+		default:
+			RequestHelper.processError(request, response);
+			break;
+		}
 	}
 
 }

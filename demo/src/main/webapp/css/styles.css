@@ -1,0 +1,36 @@
+body{
+	background-image: linear-gradient(30deg, #ffe, aqua);
+}
+
+nav{
+	background-image: linear-gradient(205deg, black, grey);
+}
+
+#top-nav {
+	display: flex;
+	justify-content: space-around;
+}
+
+.btn{
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	margin-top: 1em;
+}
+
+.btn button{
+	background: #ffffff;
+	color: black;
+	width: 5em;
+	font-size: 4em;
+	margin: .2em;
+	border-radius: 15px;
+}
+
+.btn button:hover{
+	background: #80ff00;
+	color: black;
+	box-shadow:  0px 0px 15px .1em black;
+	font-weight: bold;
+}

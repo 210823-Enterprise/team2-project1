@@ -1,5 +1,5 @@
 package com.revature.objectmapper;
 
-public class ObjectSaver {
+public class ObjectSaver extends ObjectMapper{
 
 }
