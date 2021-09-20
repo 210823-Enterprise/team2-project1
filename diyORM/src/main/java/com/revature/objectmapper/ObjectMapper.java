@@ -3,6 +3,7 @@ package com.revature.objectmapper;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.sql.Connection;
 import java.sql.Date;
 import java.sql.ParameterMetaData;
 import java.sql.PreparedStatement;
@@ -11,11 +12,14 @@ import java.sql.Timestamp;
 
 import org.apache.log4j.Logger;
 
-public abstract class ObjectMapper {
+import com.revature.util.ConnectionFactory;
 
-	
+
+public class ObjectMapper {
+
+	private static final ObjectMapper objectMapper = new ObjectMapper();
+	private static final ObjectRemover objectRemover = new ObjectRemover();
 	private static Logger log = Logger.getLogger(ObjectMapper.class);
-	
 	protected void setStatement(PreparedStatement pstmt, ParameterMetaData pd, Method getter, Object obj, int index) {
     
 			try {
@@ -25,7 +29,10 @@ public abstract class ObjectMapper {
 			}
 	}
 	
-	
+	public static ObjectMapper getInstance() {
+		// TODO Auto-generated method stub
+		return objectMapper;
+	}
 	/**
 	 * @param prepares  statement to set
 	 * @param parameter type
@@ -74,6 +81,10 @@ public abstract class ObjectMapper {
 			log.error("Encoutered error " + e + " at method setPreparedStatement()");
 		}
 
+	}
+
+	public boolean removeObjectFromDb(Object obj, Connection conn) {
+		return objectRemover.removeObjectFromDb(obj, conn);
 	}
 
 }

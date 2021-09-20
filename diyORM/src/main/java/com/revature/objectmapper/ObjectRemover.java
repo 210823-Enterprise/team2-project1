@@ -11,6 +11,7 @@ import com.revature.util.MetaModel;
 
 public class ObjectRemover extends ObjectMapper{
 	
+	@Override
 	public boolean removeObjectFromDb(Object obj, Connection conn) {
 		
 		MetaModel<?> model = MetaModel.of(obj.getClass()); // use this to creaet an instance of the object
@@ -38,11 +39,6 @@ public class ObjectRemover extends ObjectMapper{
 		//ObjectCache class...
 		// then call acustom setStatement method	
 		
-	}
-
-	public static ObjectRemover getInstance() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }
