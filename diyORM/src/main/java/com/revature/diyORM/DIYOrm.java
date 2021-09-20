@@ -21,15 +21,22 @@ public class DIYOrm {
 		
 	}
 	
-	// return a a static instanc of this singleton class
+
+	
+	// return a a static instance of this singleton class
 	public static DIYOrm getInstance() {
 		return diyorm;
 	}
 	
+	//Adds a class to the ORM. This is the method to use to declare a Class is an object inside of the database.
+	public boolean addClass(final Class<?> clazz) {
+		return false;
+	}
 	
+
 	
 	// when someone wants to delete an object from their database
-	// DIYORM.deleteObjFromDB
+	// DIYOrm.deleteObjFromDB
 	public boolean deleteObjFromDB(Object obj) {
 		
 		return obj_mapper.removeObjectFromDb(obj, conn);
