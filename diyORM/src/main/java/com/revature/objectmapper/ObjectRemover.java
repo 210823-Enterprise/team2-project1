@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.revature.util.ConnectionFactory;
 import com.revature.util.IdField;
 import com.revature.util.MetaModel;
 
@@ -20,8 +21,8 @@ public class ObjectRemover extends ObjectMapper{
 		
 		
 		IdField primaryKey = model.getPrimaryKey(); // change this to IdField\
-		String sql = "INSERT INTO Test (username,pass) VALUES ('ryan','password') RETURNING id";
-		//String sql 		  = "DELETE FROM " + model.getSimpleClassName() + " where " + primaryKey.getName() + " = ? RETURNING true"; // create some type of method that returns the table name in MetaModel;
+		//String sql = "INSERT INTO team2project1.test (username,pass) VALUES ('ryano','passwsadford') RETURNING id";
+		String sql = "DELETE FROM team2project1." + model.getSimpleClassName().toLowerCase() + " WHERE " + primaryKey.getName() + " = ? RETURNING id"; // create some type of method that returns the table name in MetaModel;
 		System.out.println(sql);
 		
 		
@@ -29,13 +30,14 @@ public class ObjectRemover extends ObjectMapper{
 		try {
 			 System.out.println("? = "+primaryKey.get(obj));
 			 PreparedStatement pstmt = conn.prepareStatement(sql);
-			 //pstmt.setInt(1, primaryKey.get(obj));
+			 pstmt.setInt(1, primaryKey.get(obj));
 			 ResultSet rs;
 			 
 			 if ((rs = pstmt.executeQuery()) != null) {
 				 rs.next();
 				 System.out.println(rs.getInt(1));
 				 ParameterMetaData pd = pstmt.getParameterMetaData();
+				 conn.commit();
 				 return true;
 			 }
 			 

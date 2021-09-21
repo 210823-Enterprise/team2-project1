@@ -12,7 +12,7 @@ public class ConnectionUtil {
 	// Another idea: set up connection pool here....
 	// Research DATASOURCE in custom ORM's
 	public static void getConnection() {
-		Connection con = ConnectionFactory.getConnection();
+		Connection conn = ConnectionFactory.getConnection();
 	}
 	
 }
