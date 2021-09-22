@@ -88,5 +88,9 @@ public class ObjectMapper {
 	public boolean removeObjectFromDb(Object obj, Connection conn) {
 		return objectRemover.removeObjectFromDb(obj, conn);
 	}
+	public boolean addObjectToDB(final Object obj) {
+		return objectSaver.addObjectToDB(obj);
+	}
+	
 
 }

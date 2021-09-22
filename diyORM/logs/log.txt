@@ -83,3 +83,7 @@
 2021-09-20 20:27:06 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
 2021-09-20 20:28:51 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
 2021-09-20 20:29:37 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-22 11:21:32 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-22 11:23:07 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-22 11:23:36 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-22 11:26:34 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
