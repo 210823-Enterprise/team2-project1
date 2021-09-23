@@ -25,7 +25,13 @@ public class OrmDriver {
 		ObjectMapper om = new ObjectMapper();
 		for (Test test:tests) {
 			System.out.println("===================================");
-			System.out.println(om.addObjectToDB(test));
+			System.out.println(om.addObjectToDB(test,cn));
+			try {
+				cn.commit();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		//System.out.println(om.removeObjectFromDb(test, cn));
 		
