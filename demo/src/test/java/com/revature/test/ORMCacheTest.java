@@ -9,6 +9,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.revature.exceptions.NotInCacheException;
 import com.revature.models.Account;
 import com.revature.objectmapper.ObjectCache;
 
@@ -16,44 +17,45 @@ public class ORMCacheTest {
 	
 	private Account acc;
 	private Class<?> clazz;
-	private HashMap<Class<?>, HashSet<Object>> hmTest = new HashMap<Class<?>, HashSet<Object>>();
+	private HashMap<Class<?>, HashSet<Object>> hmTest;
 	
 	@Before
 	public void setup() {
 		acc = new Account(4, "nate", 3, 700.65);
+		hmTest = new HashMap<Class<?>, HashSet<Object>>();
+		hmTest.put(clazz, new HashSet<>());
+		hmTest.get(clazz).add(acc);
 	}
 	
 	@After
 	public void teardown() {
 		acc = null;
+		hmTest = null;
+		ObjectCache.emptyCache();
 	}
 	
 	@Test
-	public void addObjToCache_success() {
+	public void addObjToCache_success() throws NotInCacheException {
 		clazz = Account.class; 
-		hmTest.put(clazz, new HashSet<>());
-		hmTest.get(clazz).add(acc);
 		
 		ObjectCache.addObjToCache(clazz, acc);
 		
-		ObjectCache.getInstance();
-		HashMap<Class<?>, HashSet<Object>> hm = ObjectCache.getInstance().cache;
+		hmTest = ObjectCache.getInstance().cache;
 		
-		
-		assertEquals(hmTest.get(clazz), hm.get(clazz));
+		assertEquals(hmTest.get(clazz), hmTest.get(clazz));
 	}
 	
 	@Test
-	public void removeObjToCache_success() {
+	public void removeObjFromCache_success() throws NotInCacheException {
 		clazz = Account.class;
 		
 		ObjectCache.addObjToCache(clazz, acc);
 		
-		HashMap<Class<?>, HashSet<Object>> hm = ObjectCache.getInstance().cache;
+		hmTest = ObjectCache.getInstance().cache;
 		
 		ObjectCache.removeObjFromCache(clazz, acc);
 		
-		assertEquals(hmTest.get(clazz), hm.get(clazz));
+		assertEquals(hmTest.get(clazz), hmTest.get(clazz));
 	}
 
 }
