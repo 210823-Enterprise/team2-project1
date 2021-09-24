@@ -140,3 +140,7 @@
 2021-09-23 19:41:58 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
 2021-09-23 19:45:17 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
 2021-09-23 19:45:47 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 19:58:17 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 20:04:12 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 20:04:14 INFO  revature.objectmapper.ObjectSaver:66} - SQL UPDATE called with query: UPDATE "test" SET username = ?, pass = ? WHERE id = 2;
+2021-09-23 20:04:14 INFO  revature.objectmapper.ObjectSaver:133} - UPDATE OBJECT IN DB SUCCESFUL

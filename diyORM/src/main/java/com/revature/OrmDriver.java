@@ -16,7 +16,7 @@ public class OrmDriver {
 	public static void main(String[] args) {
 		Configuration cfg = new Configuration();
 		Connection cn = ConnectionFactory.getConnection();
-		Test test = new Test(2,"Yolo","Swag");
+		Test test = new Test(2,"UpdatedUser","UpdatedPass");
 		ObjectMapper om = new ObjectMapper();
 		String update = "username,pass";
 		om.UpdateObjectInDB(test, update, cn);
