@@ -8,6 +8,9 @@ import java.sql.SQLException;
 import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.log4j.Logger;
+
 import java.util.Arrays;
 
 import com.revature.annotations.Column;
@@ -15,7 +18,7 @@ import com.revature.annotations.Entity;
 import com.revature.annotations.Id;
 
 public class ObjectSaver extends ObjectMapper {
-
+	private static Logger log = Logger.getLogger(ObjectSaver.class);
 	// Update columns will be comma separated string that shouldn't contain id, since that is how the function finds the entry to update.
 	public boolean UpdateObjectInDB(final Object obj, final String update_columns, Connection conn) throws IllegalArgumentException {
 		update_columns.replace(" ", "");
@@ -40,8 +43,8 @@ public class ObjectSaver extends ObjectMapper {
 						fieldsToUpdate.add(f);
 					}
 				} catch (IllegalAccessException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
+					log.warn(e);
 				}
 			}
 		}
@@ -60,7 +63,7 @@ public class ObjectSaver extends ObjectMapper {
                 if (fieldsToUpdate.size() > fieldCounter) sql += ",";    
         }
         sql+=" WHERE "+idName+" = "+id+";";
-       	//TODO: log SQL statement
+       	log.info("SQL UPDATE called with query: "+sql);
         
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -94,9 +97,10 @@ public class ObjectSaver extends ObjectMapper {
 					}catch (NullPointerException e){ fieldCounter3++;}
 				} catch (IllegalAccessException e) {
 					e.printStackTrace();
+					log.warn(e);
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
+					log.warn(e);
 				}
 			}
 			//TODO log something here
@@ -113,22 +117,22 @@ public class ObjectSaver extends ObjectMapper {
 				try {
 					rs.close();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
+					log.warn(e);
 				}
 				if (pstmt != null) {
 					try {
 						pstmt.close();
 					} catch (SQLException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
+						log.warn(e);
 					}
 				}
 			}
 		}
         
-		
-		return false;
+		log.info("UPDATE OBJECT IN DB SUCCESFUL");
+		return true;
 	}
 
 	public boolean addObjectToDB(final Object obj, Connection conn) {
@@ -167,7 +171,7 @@ public class ObjectSaver extends ObjectMapper {
 			}
 		}
 		sql += ");";
-		//TODO: log sql statement
+		log.info("SQL INSERT called with query: "+sql);
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		Long newId = 0L;
@@ -200,9 +204,10 @@ public class ObjectSaver extends ObjectMapper {
 					}catch (NullPointerException e){ fieldCounter3++;}
 				} catch (IllegalAccessException e) {
 					e.printStackTrace();
+					log.warn(e);
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
+					log.warn(e);
 				}
 			}
 			//TODO log something here
@@ -212,27 +217,27 @@ public class ObjectSaver extends ObjectMapper {
 			//System.out.println(newId); //here for debugging
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			log.warn(e);
 		} finally {
 			if (rs != null) {
 				try {
 					rs.close();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
+					log.warn(e);
 				}
 				if (pstmt != null) {
 					try {
 						pstmt.close();
 					} catch (SQLException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
+						log.warn(e);
 					}
 				}
 			}
 		}
-
+		log.info("INSERT OBJECT IN DB SUCCESFUL");
 		return true;
 	}
 }
