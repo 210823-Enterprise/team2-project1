@@ -210,6 +210,7 @@ public class ObjectGetter extends ObjectMapper {
 		}
 		return objsList;
 	}
+
 	
 	public List<Object> getListObjectFromDB(final Class<?> clazz, final String columns,
 			final String conditions, Connection cn) {
@@ -556,6 +557,7 @@ public class ObjectGetter extends ObjectMapper {
 			e.printStackTrace();
 		}
 		return objsList;
+
 	}
 
 }

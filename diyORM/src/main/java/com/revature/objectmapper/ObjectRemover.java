@@ -22,7 +22,7 @@ public class ObjectRemover extends ObjectMapper{
 		
 		IdField primaryKey = model.getPrimaryKey(); // change this to IdField\
 		//String sql = "INSERT INTO team2project1.test (username,pass) VALUES ('ryano','passwsadford') RETURNING id";
-		String sql = "DELETE FROM team2project1." + model.getSimpleClassName().toLowerCase() + " WHERE " + primaryKey.getName() + " = ? RETURNING id"; // create some type of method that returns the table name in MetaModel;
+		String sql = "DELETE FROM " + model.getSimpleClassName().toLowerCase() + " WHERE " + primaryKey.getName() + " = ? RETURNING id"; // create some type of method that returns the table name in MetaModel;
 		System.out.println(sql);
 		
 		
