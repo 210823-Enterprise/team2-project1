@@ -18,8 +18,14 @@ public class OrmDriver {
 		Connection cn = ConnectionFactory.getConnection();
 		Test test = new Test(2,"Yolo","Swag");
 		ObjectMapper om = new ObjectMapper();
-		String update = "id,pass";
+		String update = "username,pass";
 		om.UpdateObjectInDB(test, update, cn);
+		try {
+			cn.commit();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 //		for (Test test:tests) {
 //			System.out.println("===================================");
 //			System.out.println(om.addObjectToDB(test,cn));
