@@ -144,3 +144,83 @@
 2021-09-23 20:04:12 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
 2021-09-23 20:04:14 INFO  revature.objectmapper.ObjectSaver:66} - SQL UPDATE called with query: UPDATE "test" SET username = ?, pass = ? WHERE id = 2;
 2021-09-23 20:04:14 INFO  revature.objectmapper.ObjectSaver:133} - UPDATE OBJECT IN DB SUCCESFUL
+2021-09-24 13:51:42 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 13:51:44 INFO  revature.objectmapper.ObjectSaver:183} - SQL INSERT called with query: INSERT INTO "test" ( username, pass ) values (?,?);
+2021-09-24 13:51:44 INFO  revature.objectmapper.ObjectSaver:249} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-24 13:52:47 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 13:52:48 INFO  revature.objectmapper.ObjectSaver:183} - SQL INSERT called with query: INSERT INTO "test" ( username, pass ) values (?,?);
+2021-09-24 13:52:49 INFO  revature.objectmapper.ObjectSaver:249} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-24 13:53:47 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 13:53:49 INFO  revature.objectmapper.ObjectSaver:183} - SQL INSERT called with query: INSERT INTO "test2" ( username, pass ) values (?,?);
+2021-09-24 13:53:49 WARN  revature.objectmapper.ObjectSaver:230} - org.postgresql.util.PSQLException: ERROR: column "username" of relation "test2" does not exist
+  Position: 23
+2021-09-24 13:53:49 INFO  revature.objectmapper.ObjectSaver:249} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-24 13:55:49 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 13:55:51 INFO  revature.objectmapper.ObjectSaver:183} - SQL INSERT called with query: INSERT INTO "test2" ( username, pass ) values (?,?);
+2021-09-24 13:55:51 WARN  revature.objectmapper.ObjectSaver:230} - org.postgresql.util.PSQLException: ERROR: column "username" of relation "test2" does not exist
+  Position: 23
+2021-09-24 13:55:51 INFO  revature.objectmapper.ObjectSaver:249} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-24 13:56:11 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 13:56:12 INFO  revature.objectmapper.ObjectSaver:183} - SQL INSERT called with query: INSERT INTO "test" ( username, pass ) values (?,?);
+2021-09-24 13:56:12 INFO  revature.objectmapper.ObjectSaver:249} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-24 13:57:31 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 13:57:33 INFO  revature.objectmapper.ObjectSaver:183} - SQL INSERT called with query: INSERT INTO "test" ( username, pass ) values (?,?);
+2021-09-24 13:57:33 INFO  revature.objectmapper.ObjectSaver:249} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-24 14:04:18 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 14:04:19 INFO  revature.objectmapper.ObjectSaver:183} - SQL INSERT called with query: INSERT INTO "test" ( username, pass ) values (?,?);
+2021-09-24 14:04:19 INFO  revature.objectmapper.ObjectSaver:249} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-24 14:04:31 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 14:04:32 INFO  revature.objectmapper.ObjectSaver:183} - SQL INSERT called with query: INSERT INTO "test2" ( username, pass ) values (?,?);
+2021-09-24 14:04:32 WARN  revature.objectmapper.ObjectSaver:230} - org.postgresql.util.PSQLException: ERROR: column "username" of relation "test2" does not exist
+  Position: 23
+2021-09-24 14:04:32 INFO  revature.objectmapper.ObjectSaver:249} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-24 14:05:33 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 14:05:34 INFO  revature.objectmapper.ObjectSaver:183} - SQL INSERT called with query: INSERT INTO "test2" ( username, pass ) values (?,?);
+2021-09-24 14:05:34 WARN  revature.objectmapper.ObjectSaver:230} - org.postgresql.util.PSQLException: ERROR: column "username" of relation "test2" does not exist
+  Position: 23
+2021-09-24 14:05:34 INFO  revature.objectmapper.ObjectSaver:249} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-24 14:06:10 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 14:06:12 INFO  revature.objectmapper.ObjectSaver:183} - SQL INSERT called with query: INSERT INTO "testafdasf" ( username, pass ) values (?,?);
+2021-09-24 14:06:12 WARN  revature.objectmapper.ObjectSaver:230} - org.postgresql.util.PSQLException: ERROR: relation "testafdasf" does not exist
+  Position: 13
+2021-09-24 14:06:12 INFO  revature.objectmapper.ObjectSaver:249} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-24 14:07:00 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 14:07:01 INFO  revature.objectmapper.ObjectSaver:183} - SQL INSERT called with query: INSERT INTO "testafdasf" ( username, pass ) values (?,?);
+2021-09-24 14:07:01 WARN  revature.objectmapper.ObjectSaver:230} - org.postgresql.util.PSQLException: ERROR: relation "testafdasf" does not exist
+  Position: 13
+2021-09-24 14:07:01 INFO  revature.objectmapper.ObjectSaver:249} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-24 14:14:05 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 14:14:06 INFO  revature.objectmapper.ObjectSaver:185} - SQL INSERT called with query: INSERT INTO "testafdasf" ( username, pass ) values (?,?);
+2021-09-24 14:14:06 WARN  revature.objectmapper.ObjectSaver:232} - org.postgresql.util.PSQLException: ERROR: relation "testafdasf" does not exist
+  Position: 13
+2021-09-24 14:14:06 INFO  revature.objectmapper.ObjectSaver:251} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-24 14:19:27 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 14:19:28 INFO  revature.objectmapper.ObjectSaver:192} - SQL INSERT called with query: INSERT INTO "testafdasf" ( username, pass ) values (?,?);
+2021-09-24 14:19:28 WARN  revature.objectmapper.ObjectSaver:241} - org.postgresql.util.PSQLException: ERROR: relation "testafdasf" does not exist
+  Position: 13
+2021-09-24 14:19:28 INFO  revature.objectmapper.ObjectSaver:260} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-24 14:19:46 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 14:19:48 INFO  revature.objectmapper.ObjectSaver:192} - SQL INSERT called with query: INSERT INTO "testafdasf" ( username, pass ) values (?,?);
+2021-09-24 14:19:48 WARN  revature.objectmapper.ObjectSaver:241} - org.postgresql.util.PSQLException: ERROR: relation "testafdasf" does not exist
+  Position: 13
+2021-09-24 14:19:48 INFO  revature.objectmapper.ObjectSaver:260} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-24 14:20:13 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 14:20:15 INFO  revature.objectmapper.ObjectSaver:192} - SQL INSERT called with query: INSERT INTO "testafdasf" ( username, pass ) values (?,?);
+2021-09-24 14:20:15 WARN  revature.objectmapper.ObjectSaver:241} - org.postgresql.util.PSQLException: ERROR: relation "testafdasf" does not exist
+  Position: 13
+2021-09-24 14:20:15 INFO  revature.objectmapper.ObjectSaver:260} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-24 14:20:57 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 14:21:00 INFO  revature.objectmapper.ObjectSaver:192} - SQL INSERT called with query: INSERT INTO "testafdasf" ( username, pass ) values (?,?);
+2021-09-24 14:21:00 WARN  revature.objectmapper.ObjectSaver:241} - org.postgresql.util.PSQLException: ERROR: relation "testafdasf" does not exist
+  Position: 13
+2021-09-24 14:21:00 INFO  revature.objectmapper.ObjectSaver:260} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-24 14:22:44 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 14:22:45 INFO  revature.objectmapper.ObjectSaver:192} - SQL INSERT called with query: INSERT INTO "testafdasf" ( username, pass ) values (?,?);
+2021-09-24 14:22:45 INFO  revature.objectmapper.ObjectSaver:260} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-24 14:23:14 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 14:23:15 INFO  revature.objectmapper.ObjectSaver:192} - SQL INSERT called with query: INSERT INTO "testafdasf" ( username, pass ) values (?,?);
+2021-09-24 14:23:15 INFO  revature.objectmapper.ObjectSaver:260} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-24 14:23:25 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 14:23:27 INFO  revature.objectmapper.ObjectSaver:299} - Database Table created with query: DROP Table IF EXISTS test3; Create Table test3 (id Serial, username varchar(255), pass varchar(255));
+2021-09-24 14:23:27 INFO  revature.objectmapper.ObjectSaver:192} - SQL INSERT called with query: INSERT INTO "test3" ( username, pass ) values (?,?);
+2021-09-24 14:23:27 INFO  revature.objectmapper.ObjectSaver:260} - INSERT OBJECT IN DB SUCCESFUL

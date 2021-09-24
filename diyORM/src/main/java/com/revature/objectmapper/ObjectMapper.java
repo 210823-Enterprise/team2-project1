@@ -94,6 +94,9 @@ public class ObjectMapper {
 	public boolean UpdateObjectInDB(final Object obj, final String update_columns, Connection conn) {
 		return objectSaver.UpdateObjectInDB(obj, update_columns, conn);
 	}
+	public boolean addTableToDB(final Object obj, Connection conn) {
+		return objectSaver.addTableToDB(obj, conn);
+	}
 	
 
 }

@@ -13,9 +13,9 @@ public class ObjectGetter extends ObjectMapper{
 	public Optional<List<Object>> getListObjectFromDB(final Class <?> clazz, final String columns, final String conditions){
 		return null;
 	}
-	public Optional<List<Object>> getListObjectFromDB(final Class <?> clazz, final String columns, final String conditions,final String operators){
-		return null;
-	}
+//	public Optional<List<Object>> getListObjectFromDB(final Class <?> clazz, final String columns, final String conditions,final String operators){
+//		return null;
+//	}
 	public Optional<List<Object>> getListObjectFromDB(final Class<?> clazz){
 		return null;
 	}
