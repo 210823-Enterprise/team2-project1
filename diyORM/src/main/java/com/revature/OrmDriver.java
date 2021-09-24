@@ -1,5 +1,6 @@
 package com.revature;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -29,7 +30,6 @@ public class OrmDriver {
 //			String pass = "pass"+i;
 //			tests.add(new Test(i,user,pass));
 //		}
-		ObjectMapper om = new ObjectMapper();
 
 		Test2 test = new Test2(25,"UpdatedUser","UpdatedPass");
 		FieldCheck field = new FieldCheck("test", "testpass", 'c',new Date());
@@ -54,11 +54,11 @@ public class OrmDriver {
 //			}
 //		}
 
-//		ObjectCache.emptyCache();
+		/**
+		 * Add all from db to cache
+		 */
 //		ObjectCache.addAllFromDBToCache(Test.class, cn);
 //		System.out.println(ObjectCache.getCache());
-		
-		System.out.println(om.getListObjectFromDB(Test.class, "username", "username='ryan'", cn));
 		
 
 		//System.out.println(om.removeObjectFromDb(test, cn));

@@ -25,9 +25,8 @@ import com.revature.exceptions.NotInCacheException;
 public class ObjectCache {
 
 	public final HashMap<Class<?>, HashSet<Object>> cache = new HashMap<Class<?>, HashSet<Object>>();
-	static private final ObjectCache obj_cache = new ObjectCache();
-
-	static Logger log = Logger.getLogger(ObjectCache.class);
+	private static final ObjectCache obj_cache = new ObjectCache();
+	private static Logger log = Logger.getLogger(ObjectCache.class);
 	
 	// To return the cache you need to use: getInstance().cache
 	public static ObjectCache getInstance() {
@@ -79,28 +78,11 @@ public class ObjectCache {
 		getCache().clear();
 	}
 	
-	// TODO: Adding the database to the cache
-	// have to take in table name first
-//	public static void addAllFromDBToCache(final Class<?> clazz, Connection cn) throws NotInCacheException {
-//		String sql = "SELECT * FROM " + clazz.getSimpleName();
-//		List<Field> fields = Arrays.asList(clazz.getDeclaredFields());
-//	    for(Field field: fields) {
-//	        field.setAccessible(true);
-//	    }
-//		try {
-//			Statement stmt = cn.createStatement();
-//			ResultSet rs = stmt.executeQuery(sql);
-//			if (rs != null) {
-//				while (rs.next()) {
-//					addObjToCache(clazz, rs.getRow());
-//					//addObjToCache(clazz, rs.getObject(1));
-//				}
-//			}
-//
-//		} catch (SQLException e) {
-//			log.error("Could not add database to the cache!");
-//			e.printStackTrace();
-//		}
-//	}
+	
+	public static void addAllFromDBToCache(final Class<?> clazz, Connection cn) throws NotInCacheException {
+		ObjectGetter objectGetter = new ObjectGetter();
+		HashSet<Object> hs = new HashSet<Object>(objectGetter.getListObjectFromDB(clazz, cn));
+		getCache().put(clazz, hs);
+	}
 
 }
