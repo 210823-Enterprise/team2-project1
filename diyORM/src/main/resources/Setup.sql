@@ -1,4 +1,7 @@
 DROP TABLE Test CASCADE;
+DROP TABLE Test2 CASCADE;
+DROP TABLE Test3 CASCADE;
+DROP TABLE Testafdasf CASCADE;
 CREATE TABLE Test (
 id Serial,
 username varchar(50),
