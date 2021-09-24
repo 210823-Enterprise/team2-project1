@@ -9,6 +9,8 @@ import java.sql.ParameterMetaData;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.List;
+import java.util.Optional;
 
 import org.apache.log4j.Logger;
 
@@ -91,6 +93,16 @@ public class ObjectMapper {
 	public boolean addObjectToDB(final Object obj,Connection conn) {
 		return objectSaver.addObjectToDB(obj,conn);
 	}
-	
+	public List<Object> getListObjectFromDB(final Class<?> clazz, Connection cn) {
+		return objectGetter.getListObjectFromDB(clazz, cn);
+	}
+	public List<Object> getListObjectFromDB(final Class<?> clazz, final String columns,
+			 Connection cn) {
+		return objectGetter.getListObjectFromDB(clazz, columns, cn);
+	}
+	public List<Object> getListObjectFromDB(final Class<?> clazz, final String columns,
+			final String conditions, Connection cn) {
+		return objectGetter.getListObjectFromDB(clazz, columns, conditions, cn);
+	}
 
 }

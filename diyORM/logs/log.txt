@@ -106,3 +106,90 @@
 2021-09-22 21:04:08 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
 2021-09-22 21:04:50 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
 2021-09-22 21:05:10 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 14:36:07 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 14:38:54 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 14:40:03 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 14:41:54 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 14:43:31 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 14:44:06 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 14:45:10 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 14:48:02 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 14:48:41 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 14:51:01 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 14:51:21 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 14:52:27 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 15:07:58 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 15:08:01 ERROR revature.objectmapper.ObjectCache:96} - Could not add database to the cache!
+2021-09-23 15:08:21 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 15:10:43 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 15:14:03 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 15:14:47 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 15:18:25 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 15:19:07 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 15:26:44 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 15:35:49 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 15:41:31 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 15:41:56 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 15:52:42 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 15:58:02 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 15:59:52 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 16:00:28 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 16:04:45 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 16:06:00 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 16:06:02 ERROR revature.objectmapper.ObjectCache:99} - Could not add database to the cache!
+2021-09-23 16:06:23 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 16:06:41 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 16:08:20 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 16:08:21 ERROR revature.util.ConnectionFactory:49} - Cannot establish database connection
+2021-09-23 16:10:43 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 16:10:59 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 16:11:32 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 16:25:04 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 16:25:05 ERROR revature.objectmapper.ObjectCache:94} - Could not add database to the cache!
+2021-09-23 16:29:06 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 16:29:08 ERROR revature.objectmapper.ObjectCache:95} - Could not add database to the cache!
+2021-09-23 16:31:18 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 16:31:20 ERROR revature.objectmapper.ObjectCache:95} - Could not add database to the cache!
+2021-09-23 16:31:42 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 16:31:44 ERROR revature.objectmapper.ObjectCache:95} - Could not add database to the cache!
+2021-09-23 16:34:52 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 16:34:54 ERROR revature.objectmapper.ObjectCache:95} - Could not add database to the cache!
+2021-09-23 16:39:50 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 16:42:26 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 16:42:27 ERROR revature.objectmapper.ObjectCache:95} - Could not add database to the cache!
+2021-09-23 16:54:42 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 16:54:44 ERROR revature.objectmapper.ObjectCache:98} - Could not add database to the cache!
+2021-09-23 16:54:52 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 16:55:35 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 16:56:06 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 16:58:31 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 16:59:26 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 16:59:52 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 17:00:28 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 17:00:50 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 17:07:05 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 17:07:07 ERROR revature.objectmapper.ObjectCache:98} - Could not add database to the cache!
+2021-09-23 17:13:01 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 17:37:36 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-23 17:39:05 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 09:58:52 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 10:07:39 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 10:08:41 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 10:14:50 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 10:19:33 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 13:56:17 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 13:59:54 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 14:00:44 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 14:01:31 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 14:02:03 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 14:05:12 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 14:06:13 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 14:11:50 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 14:12:40 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 14:15:51 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 14:20:26 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 14:21:13 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 14:31:23 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 14:42:09 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 14:49:10 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 14:49:48 INFO  revature.util.ConnectionFactory:46} - Database Connection Established

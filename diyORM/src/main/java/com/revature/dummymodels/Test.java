@@ -17,7 +17,11 @@ public class Test {
 	
 	@Column(columnName = "pass")
 	public String testPassword;
-
+	
+	public Test() {
+		
+	}
+	
 	public Test(int id, String testUsername, String testPassword) {
 		super();
 		this.id = id;
@@ -53,4 +57,11 @@ public class Test {
 	public void setTestPassword(String testPassword) {
 		this.testPassword = testPassword;
 	}
+
+	@Override
+	public String toString() {
+		return "Test [id=" + id + ", testUsername=" + testUsername + ", testPassword=" + testPassword + "]";
+	}
+	
+	
 }
