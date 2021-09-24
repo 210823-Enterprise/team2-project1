@@ -15,17 +15,10 @@ import javax.persistence.Table;
  *
  */
 
-@Entity
-@Table
 public class User {
 
-	@Id
-	@Column
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	@Column
 	private String username;
-	@Column
 	private String password;
 	
 	//Taken from joined table or queried from accounts
