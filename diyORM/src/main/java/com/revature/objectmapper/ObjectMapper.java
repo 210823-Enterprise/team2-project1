@@ -16,7 +16,7 @@ import com.revature.util.ConnectionFactory;
 
 
 public class ObjectMapper {
-
+	
 	private static final ObjectMapper objectMapper = new ObjectMapper();
 	private static final ObjectRemover objectRemover = new ObjectRemover();
 	private static final ObjectSaver objectSaver = new ObjectSaver();
@@ -88,5 +88,12 @@ public class ObjectMapper {
 	public boolean removeObjectFromDb(Object obj, Connection conn) {
 		return objectRemover.removeObjectFromDb(obj, conn);
 	}
+	public boolean addObjectToDB(final Object obj,Connection conn) {
+		return objectSaver.addObjectToDB(obj,conn);
+	}
+	public boolean UpdateObjectInDB(final Object obj, final String update_columns, Connection conn) {
+		return objectSaver.UpdateObjectInDB(obj, update_columns, conn);
+	}
+	
 
 }
