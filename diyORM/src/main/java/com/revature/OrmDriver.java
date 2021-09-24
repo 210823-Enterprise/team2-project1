@@ -16,23 +16,20 @@ public class OrmDriver {
 	public static void main(String[] args) {
 		Configuration cfg = new Configuration();
 		Connection cn = ConnectionFactory.getConnection();
-		List<Test> tests = new ArrayList<Test>();
-		for (int i =0; i<10;i++) {
-			String user = "user"+i;
-			String pass = "pass"+i;
-			tests.add(new Test(i,user,pass));
-		}
+		Test test = new Test(2,"Yolo","Swag");
 		ObjectMapper om = new ObjectMapper();
-		for (Test test:tests) {
-			System.out.println("===================================");
-			System.out.println(om.addObjectToDB(test,cn));
-			try {
-				cn.commit();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+		String update = "id,pass";
+		om.UpdateObjectInDB(test, update, cn);
+//		for (Test test:tests) {
+//			System.out.println("===================================");
+//			System.out.println(om.addObjectToDB(test,cn));
+//			try {
+//				cn.commit();
+//			} catch (SQLException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		}
 		//System.out.println(om.removeObjectFromDb(test, cn));
 		
 		//in our configuration object we want to add annotated class, without ever having to instantiate them

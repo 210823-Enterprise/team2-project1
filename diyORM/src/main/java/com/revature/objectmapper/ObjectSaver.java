@@ -6,6 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Arrays;
 
 import com.revature.annotations.Column;
 import com.revature.annotations.Entity;
@@ -13,8 +16,50 @@ import com.revature.annotations.Id;
 
 public class ObjectSaver extends ObjectMapper {
 
-	// Update columns will be comma separated string
-	public boolean UpdateObjectInDB(final Object obj, final String update_columns) {
+	// Update columns will be comma separated string 
+	public boolean UpdateObjectInDB(final Object obj, final String update_columns, Connection conn) throws IllegalArgumentException {
+		String[] columns = update_columns.split(",");
+		Field[] fields = obj.getClass().getDeclaredFields();
+		List<Field> fieldsToUpdate = new ArrayList<Field>();
+		for (Field f: fields) {
+			for (String s: columns) {
+				try{
+					if (f.getAnnotation(Id.class).columnName().equals(s)) {
+						//check if the field is an id and matches the fields being edited
+						fieldsToUpdate.add(f);
+					}
+					
+				}catch (NullPointerException e){
+					if (f.getAnnotation(Column.class).columnName().equals(s)) {
+						//check if the field is a column and matches the fields being edited
+						fieldsToUpdate.add(f);
+					}
+				}
+			}
+		}
+		if (fieldsToUpdate.isEmpty()) {
+			//log something went wrong
+			throw new IllegalArgumentException("Check that update string has correct column names");
+		}
+		String sql = "UPDATE " + "\"" + obj.getClass().getAnnotation(Entity.class).tableName() + "\"" + " SET";
+		
+        int fieldCounter = 0;
+
+        for (Field field : fieldsToUpdate) {
+
+                fieldCounter++;
+                try {
+                	sql += " " + field.getAnnotation(Id.class).columnName() + " = ?";
+                }
+                catch (NullPointerException e){
+                	sql += " " + field.getAnnotation(Column.class).columnName() + " = ?";
+                }
+                
+                if (fieldsToUpdate.size() > fieldCounter) sql += ",";    
+        }
+        
+        System.out.println(sql);
+		
 		return false;
 	}
 
