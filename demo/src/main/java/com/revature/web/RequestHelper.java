@@ -14,31 +14,19 @@ import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.dao.AccountDao;
 import com.revature.dao.UserDao;
+import com.revature.models.Account;
 import com.revature.models.User;
+import com.revature.service.AccountService;
 import com.revature.service.UserService;
 
 public class RequestHelper {
 	
 	private static Logger log = Logger.getLogger(RequestHelper.class);
 	private static UserService userv = new UserService(new UserDao());
+	private static AccountService aserv = new AccountService(new AccountDao());
 	private static ObjectMapper om = new ObjectMapper();
-	
-	public static void processUsers(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		
-		// 1. set the content type to return text to the browser
-		response.setContentType("text/html");
-		
-		// 2. Get a list of all Users in the Database
-		List<User> users = userv.findAll(); // create this method in the service layer
-		
-		// 3. Turn the list of Java Objects into a JSON string (using Jackson Databind Object Mapper).
-		String json = om.writeValueAsString(users);
-		
-		// 4. Use a Print Writer to write the objects to the response body seen in the browser
-		PrintWriter out = response.getWriter();
-		out.println(json);	
-	}
 	
 	// This method will process a post request, so we can't capture parameters from the request like we would in a GET request
 	public static void processLogin(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -94,17 +82,8 @@ public class RequestHelper {
 		}
 		
 	}
-	
-	public static void processError(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		
-		// if something goes wrong, redirect the user to a custom 404 error page
-		request.getRequestDispatcher("error.html").forward(request, response);
-	        /*
-		 * Remember that the forward() method does NOT produce a new request,
-		 * it just forwards it to a new resource, and we also maintain the URL
-		*/
-	}
 	public static void processNewUser(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
 	
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
@@ -115,5 +94,39 @@ public class RequestHelper {
 			
 			// 4. and send the custom villain to the session
 			session.setAttribute("the-user", u);
+	}
+	
+	public static void processError(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		
+		// if something goes wrong, redirect the user to a custom 404 error page
+		request.getRequestDispatcher("error.html").forward(request, response);
+	}
+	
+	public static void findAllAccounts(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+		
+		List<Account> accounts = aserv.findAll();
+		String json = om.writeValueAsString(accounts);
+		PrintWriter out = response.getWriter();
+		
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		
+		out.print(json);
+		out.flush();
+	}
+	public static void insertAccount(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+		
+		Account account = om.readValue(request.getReader(), Account.class);
+		aserv.insert(account);
+	}
+	public static void updateAccount(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+		
+		Account account = om.readValue(request.getReader(), Account.class);		
+		aserv.update(account);
+	}
+	public static void deleteAccount(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+		
+		String id = request.getParameter("id");
+		aserv.delete(Integer.valueOf(id));
 	}
 }
