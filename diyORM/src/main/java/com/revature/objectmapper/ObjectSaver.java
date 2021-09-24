@@ -1,14 +1,17 @@
 package com.revature.objectmapper;
 
 import java.lang.reflect.Field;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
 
 import org.apache.log4j.Logger;
 
@@ -50,6 +53,7 @@ public class ObjectSaver extends ObjectMapper {
 				} catch (IllegalAccessException e) {
 					e.printStackTrace();
 					log.warn(e);
+					return false;
 				}
 			}
 		}
@@ -97,7 +101,78 @@ public class ObjectSaver extends ObjectMapper {
 						} else {
 							pstmt.setNull(fieldCounter3, Types.INTEGER);
 						}
-					}
+					} else if (f.getType() == Long.class || f.getType() == long.class) {
+						if (f.get(obj) != null) {
+							try {
+								f.getAnnotation(Id.class).columnName();
+							} catch (NullPointerException e) {
+								pstmt.setLong(fieldCounter3, (long) f.get(obj));
+							}
+						} else {
+							pstmt.setNull(fieldCounter3, Types.BIGINT);
+						}
+					} else if (f.getType() == Double.class || f.getType() == double.class) {
+						if (f.get(obj) != null) {
+							try {
+								f.getAnnotation(Id.class).columnName();
+							} catch (NullPointerException e) {
+								pstmt.setDouble(fieldCounter3, (double) f.get(obj));
+							}
+						} else {
+							pstmt.setNull(fieldCounter3, Types.BIGINT);
+						}
+					} else if (f.getType() == Float.class || f.getType() == float.class) {
+						if (f.get(obj) != null) {
+							try {
+								f.getAnnotation(Id.class).columnName();
+							} catch (NullPointerException e) {
+								pstmt.setFloat(fieldCounter3, (float) f.get(obj));
+							}
+						} else {
+							pstmt.setNull(fieldCounter3, Types.BIGINT);
+						}
+					} else if (f.getType() == BigDecimal.class) {
+						if (f.get(obj) != null) {
+							try {
+								f.getAnnotation(Id.class).columnName();
+							} catch (NullPointerException e) {
+								pstmt.setBigDecimal(fieldCounter3, (BigDecimal) f.get(obj));
+							}
+						} else {
+							pstmt.setNull(fieldCounter3, Types.NUMERIC);
+						}
+					} else if (f.getType() == boolean.class || f.getType() == Boolean.class) {
+						if (f.get(obj) != null) {
+							pstmt.setBoolean(fieldCounter3, (boolean) f.get(obj));
+						} else {
+							pstmt.setNull(fieldCounter3, Types.TINYINT);
+						}
+
+					} else if (f.getType() == char.class || f.getType() == Character.class) {
+						if (f.get(obj) != null && f.get(obj).toString() != null
+								&& f.get(obj).toString().substring(0, 1) != null) {
+
+							Character convert = f.get(obj).toString().charAt(0);
+
+							// check to see if the character is a null character -- screw you postgres this
+							// better work
+							if (Character.isLetterOrDigit(f.get(obj).toString().charAt(0))) {
+								pstmt.setString(fieldCounter3, convert.toString());
+							} else {
+								pstmt.setNull(fieldCounter3, Types.CHAR);
+							}
+						} else {
+							pstmt.setNull(fieldCounter3, Types.CHAR);
+						}
+					}  else if (f.getType() == Date.class) {
+                        Date insertDate = (Date) f.get(obj);
+                        if (insertDate == null) {
+                            pstmt.setTimestamp(fieldCounter3, null);
+                        } else {
+                            pstmt.setTimestamp(fieldCounter3, new Timestamp(insertDate.getTime()));
+                        }
+
+                    }
 					try {
 						f.getAnnotation(Id.class).columnName();
 					} catch (NullPointerException e) {
@@ -106,9 +181,11 @@ public class ObjectSaver extends ObjectMapper {
 				} catch (IllegalAccessException e) {
 					e.printStackTrace();
 					log.warn(e);
+					return false;
 				} catch (SQLException e) {
 					e.printStackTrace();
 					log.warn(e);
+					return false;
 				}
 			}
 			// TODO log something here
@@ -127,6 +204,7 @@ public class ObjectSaver extends ObjectMapper {
 				} catch (SQLException e) {
 					e.printStackTrace();
 					log.warn(e);
+					return false;
 				}
 				if (pstmt != null) {
 					try {
@@ -134,6 +212,7 @@ public class ObjectSaver extends ObjectMapper {
 					} catch (SQLException e) {
 						e.printStackTrace();
 						log.warn(e);
+						return false;
 					}
 				}
 			}
@@ -157,7 +236,7 @@ public class ObjectSaver extends ObjectMapper {
 		// get a list of fields in the object
 		Field[] fields = obj.getClass().getDeclaredFields();
 		// begin sql statement, inserting into the table
-		String sql = "INSERT INTO " + "\"" + obj.getClass().getAnnotation(Entity.class).tableName() + "\"" + " (";
+		String sql = "INSERT INTO " + "\"" + obj.getClass().getAnnotation(Entity.class).tableName().toLowerCase() + "\"" + " (";
 
 		int fieldCounter = 0;
 		for (Field f : fields) {
@@ -216,7 +295,76 @@ public class ObjectSaver extends ObjectMapper {
 						} else {
 							pstmt.setNull(fieldCounter3, Types.INTEGER);
 						}
-					}
+					} else if (f.getType() == Long.class || f.getType() == long.class) {
+						if (f.get(obj) != null) {
+							try {
+								f.getAnnotation(Id.class).columnName();
+							} catch (NullPointerException e) {
+								pstmt.setLong(fieldCounter3, (long) f.get(obj));
+							}
+						} else {
+							pstmt.setNull(fieldCounter3, Types.BIGINT);
+						}
+					} else if (f.getType() == Double.class || f.getType() == double.class) {
+						if (f.get(obj) != null) {
+							try {
+								f.getAnnotation(Id.class).columnName();
+							} catch (NullPointerException e) {
+								pstmt.setDouble(fieldCounter3, (double) f.get(obj));
+							}
+						} else {
+							pstmt.setNull(fieldCounter3, Types.BIGINT);
+						}
+					} else if (f.getType() == Float.class || f.getType() == float.class) {
+						if (f.get(obj) != null) {
+							try {
+								f.getAnnotation(Id.class).columnName();
+							} catch (NullPointerException e) {
+								pstmt.setFloat(fieldCounter3, (float) f.get(obj));
+							}
+						} else {
+							pstmt.setNull(fieldCounter3, Types.BIGINT);
+						}
+					} else if (f.getType() == BigDecimal.class) {
+						if (f.get(obj) != null) {
+							try {
+								f.getAnnotation(Id.class).columnName();
+							} catch (NullPointerException e) {
+								pstmt.setBigDecimal(fieldCounter3, (BigDecimal) f.get(obj));
+							}
+						} else {
+							pstmt.setNull(fieldCounter3, Types.NUMERIC);
+						}
+					} else if (f.getType() == boolean.class || f.getType() == Boolean.class) {
+						if (f.get(obj) != null) {
+							pstmt.setBoolean(fieldCounter3, (boolean) f.get(obj));
+						} else {
+							pstmt.setNull(fieldCounter3, Types.TINYINT);
+						}
+
+					} else if (f.getType() == char.class || f.getType() == Character.class) {
+						if (f.get(obj) != null && f.get(obj).toString() != null
+								&& f.get(obj).toString().substring(0, 1) != null) {
+
+							Character convert = f.get(obj).toString().charAt(0);
+
+							// check to see if the character is a null character -- screw you postgres this
+							// better work
+							if (Character.isLetterOrDigit(f.get(obj).toString().charAt(0))) {
+								pstmt.setString(fieldCounter3, convert.toString());
+							} else {
+								pstmt.setNull(fieldCounter3, Types.CHAR);
+							}
+						}
+					} else if (f.getType() == Date.class) {
+                        Date insertDate = (Date) f.get(obj);
+                        if (insertDate == null) {
+                            pstmt.setTimestamp(fieldCounter3, null);
+                        } else {
+                            pstmt.setTimestamp(fieldCounter3, new Timestamp(insertDate.getTime()));
+                        }
+
+                    }
 					try {
 						f.getAnnotation(Id.class).columnName();
 					} catch (NullPointerException e) {
@@ -225,9 +373,11 @@ public class ObjectSaver extends ObjectMapper {
 				} catch (IllegalAccessException e) {
 					e.printStackTrace();
 					log.warn(e);
+					return false;
 				} catch (SQLException e) {
 					e.printStackTrace();
 					log.warn(e);
+					return false;
 				}
 			}
 			// TODO log something here
@@ -239,6 +389,7 @@ public class ObjectSaver extends ObjectMapper {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			log.warn(e);
+			return false;
 		} finally {
 			if (rs != null) {
 				try {
@@ -246,6 +397,7 @@ public class ObjectSaver extends ObjectMapper {
 				} catch (SQLException e) {
 					e.printStackTrace();
 					log.warn(e);
+					return false;
 				}
 				if (pstmt != null) {
 					try {
@@ -253,6 +405,7 @@ public class ObjectSaver extends ObjectMapper {
 					} catch (SQLException e) {
 						e.printStackTrace();
 						log.warn(e);
+						return false;
 					}
 				}
 			}
@@ -264,7 +417,7 @@ public class ObjectSaver extends ObjectMapper {
 	public boolean addTableToDB(final Object obj, Connection conn) {
 		Field[] fields = obj.getClass().getDeclaredFields();
 		String sql = "DROP Table IF EXISTS " + obj.getClass().getAnnotation(Entity.class).tableName() + ";"
-				+" Create Table " + obj.getClass().getAnnotation(Entity.class).tableName() + " (";
+				+ " Create Table " + obj.getClass().getAnnotation(Entity.class).tableName() + " (";
 		int fieldCounter = 0;
 		for (Field f : fields) {
 			fieldCounter++;
@@ -277,26 +430,54 @@ public class ObjectSaver extends ObjectMapper {
 					sql += " " + f.getAnnotation(Column.class).columnName() + " varchar(255)";
 					if (fields.length > fieldCounter)
 						sql += ",";
-				}
-				else if (f.getType() == int.class ||f.getType() == Integer.class) {
-					sql += " " + f.getAnnotation(Column.class).columnName() + " varchar(255)";
+				} else if (f.getType() == int.class || f.getType() == Integer.class) {
+					sql += " " + f.getAnnotation(Column.class).columnName() + " INTEGER";
+					if (fields.length > fieldCounter)
+						sql += ",";
+				} else if (f.getType() == long.class || f.getType() == Long.class) {
+					sql += " " + f.getAnnotation(Column.class).columnName() + " BIGINT";
+					if (fields.length > fieldCounter)
+						sql += ",";
+				} else if (f.getType() == double.class || f.getType() == Double.class) {
+					sql += " " + f.getAnnotation(Column.class).columnName() + " BIGINT";
+					if (fields.length > fieldCounter)
+						sql += ",";
+				} else if (f.getType() == float.class || f.getType() == Float.class) {
+					sql += " " + f.getAnnotation(Column.class).columnName() + " BIGINT";
+					if (fields.length > fieldCounter)
+						sql += ",";
+				} else if (f.getType() == BigDecimal.class) {
+					sql += " " + f.getAnnotation(Column.class).columnName() + " NUMERIC";
+					if (fields.length > fieldCounter)
+						sql += ",";
+				} else if (f.getType() == boolean.class || f.getType() == Boolean.class) {
+					sql += " " + f.getAnnotation(Column.class).columnName() + " BOOLEAN";
+					if (fields.length > fieldCounter)
+						sql += ",";
+				} else if (f.getType() == char.class || f.getType() == Character.class) {
+					sql += " " + f.getAnnotation(Column.class).columnName() + " CHAR";
+					if (fields.length > fieldCounter)
+						sql += ",";
+				} else if (f.getType() == Date.class) {
+					sql += " " + f.getAnnotation(Column.class).columnName() + " TIMESTAMP";
 					if (fields.length > fieldCounter)
 						sql += ",";
 				}
 			}
 		}
-		sql+=");";
+		sql += ");";
 		System.out.println(sql);
 		PreparedStatement pstmt = null;
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.execute();
+			conn.commit();
 		} catch (SQLException e) {
 			log.warn(e);
 			e.printStackTrace();
 			return false;
 		}
-		log.info("Database Table created with query: "+sql);
+		log.info("Database Table created with query: " + sql);
 		return true;
 	}
 

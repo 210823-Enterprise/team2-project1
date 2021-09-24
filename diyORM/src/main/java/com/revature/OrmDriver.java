@@ -2,8 +2,10 @@ package com.revature;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
+import com.revature.dummymodels.FieldCheck;
 import com.revature.dummymodels.Test;
 import com.revature.dummymodels.Test2;
 import com.revature.objectmapper.ObjectMapper;
@@ -18,9 +20,10 @@ public class OrmDriver {
 		Configuration cfg = new Configuration();
 		Connection cn = ConnectionFactory.getConnection();
 		Test2 test = new Test2(25,"UpdatedUser","UpdatedPass");
+		FieldCheck field = new FieldCheck("test", "testpass", 'c',new Date());
 		ObjectMapper om = new ObjectMapper();
 		String update = "username,pass";
-		om.addObjectToDB(test, cn);
+		om.addObjectToDB(field, cn);
 		try {
 			cn.commit();
 		} catch (SQLException e) {

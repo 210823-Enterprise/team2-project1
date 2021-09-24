@@ -224,3 +224,59 @@
 2021-09-24 14:23:27 INFO  revature.objectmapper.ObjectSaver:299} - Database Table created with query: DROP Table IF EXISTS test3; Create Table test3 (id Serial, username varchar(255), pass varchar(255));
 2021-09-24 14:23:27 INFO  revature.objectmapper.ObjectSaver:192} - SQL INSERT called with query: INSERT INTO "test3" ( username, pass ) values (?,?);
 2021-09-24 14:23:27 INFO  revature.objectmapper.ObjectSaver:260} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-24 15:03:17 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 15:03:19 WARN  revature.objectmapper.ObjectSaver:465} - org.postgresql.util.PSQLException: ERROR: type "datetime" does not exist
+  Position: 100
+2021-09-24 15:03:19 INFO  revature.objectmapper.ObjectSaver:266} - SQL INSERT called with query: INSERT INTO "FieldCheck" ( username, pass, testChar, date ) values (?,?,?,?);
+2021-09-24 15:03:19 WARN  revature.objectmapper.ObjectSaver:384} - org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+2021-09-24 15:03:19 INFO  revature.objectmapper.ObjectSaver:403} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-24 15:06:23 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 15:06:25 INFO  revature.objectmapper.ObjectSaver:469} - Database Table created with query: DROP Table IF EXISTS FieldCheck; Create Table FieldCheck (id Serial, username varchar(255), pass varchar(255), testChar CHAR, date DATE);
+2021-09-24 15:06:25 INFO  revature.objectmapper.ObjectSaver:266} - SQL INSERT called with query: INSERT INTO "FieldCheck" ( username, pass, testChar, date ) values (?,?,?,?);
+2021-09-24 15:06:25 WARN  revature.objectmapper.ObjectSaver:384} - org.postgresql.util.PSQLException: ERROR: relation "FieldCheck" does not exist
+  Position: 13
+2021-09-24 15:06:25 INFO  revature.objectmapper.ObjectSaver:403} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-24 15:14:25 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 15:14:27 INFO  revature.objectmapper.ObjectSaver:470} - Database Table created with query: DROP Table IF EXISTS FieldCheck; Create Table FieldCheck (id Serial, username varchar(255), pass varchar(255), testChar CHAR, date DATE);
+2021-09-24 15:14:27 INFO  revature.objectmapper.ObjectSaver:266} - SQL INSERT called with query: INSERT INTO "FieldCheck" ( username, pass, testChar, date ) values (?,?,?,?);
+2021-09-24 15:14:27 WARN  revature.objectmapper.ObjectSaver:384} - org.postgresql.util.PSQLException: ERROR: relation "FieldCheck" does not exist
+  Position: 13
+2021-09-24 15:14:27 INFO  revature.objectmapper.ObjectSaver:403} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-24 15:15:38 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 15:15:40 INFO  revature.objectmapper.ObjectSaver:470} - Database Table created with query: DROP Table IF EXISTS FieldCheck; Create Table FieldCheck (id Serial, username varchar(255), pass varchar(255), testChar CHAR, date DATE);
+2021-09-24 15:15:40 INFO  revature.objectmapper.ObjectSaver:266} - SQL INSERT called with query: INSERT INTO "FieldCheck" ( username, pass, testChar, date ) values (?,?,?,?);
+2021-09-24 15:15:40 WARN  revature.objectmapper.ObjectSaver:384} - org.postgresql.util.PSQLException: ERROR: relation "FieldCheck" does not exist
+  Position: 13
+2021-09-24 15:15:40 INFO  revature.objectmapper.ObjectSaver:403} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-24 15:24:56 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 15:24:59 INFO  revature.objectmapper.ObjectSaver:479} - Database Table created with query: DROP Table IF EXISTS FieldCheck; Create Table FieldCheck (id Serial, username varchar(255), pass varchar(255), testChar CHAR, date TIMESTAMP);
+2021-09-24 15:24:59 INFO  revature.objectmapper.ObjectSaver:271} - SQL INSERT called with query: INSERT INTO "FieldCheck" ( username, pass, testChar, date ) values (?,?,?,?);
+2021-09-24 15:24:59 WARN  revature.objectmapper.ObjectSaver:391} - org.postgresql.util.PSQLException: ERROR: relation "FieldCheck" does not exist
+  Position: 13
+2021-09-24 15:25:12 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 15:25:13 INFO  revature.objectmapper.ObjectSaver:479} - Database Table created with query: DROP Table IF EXISTS FieldCheck; Create Table FieldCheck (id Serial, username varchar(255), pass varchar(255), testChar CHAR, date TIMESTAMP);
+2021-09-24 15:25:13 INFO  revature.objectmapper.ObjectSaver:271} - SQL INSERT called with query: INSERT INTO "FieldCheck" ( username, pass, testChar, date ) values (?,?,?,?);
+2021-09-24 15:25:13 WARN  revature.objectmapper.ObjectSaver:391} - org.postgresql.util.PSQLException: ERROR: relation "FieldCheck" does not exist
+  Position: 13
+2021-09-24 15:26:18 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 15:26:19 INFO  revature.objectmapper.ObjectSaver:480} - Database Table created with query: DROP Table IF EXISTS FieldCheck; Create Table FieldCheck (id Serial, username varchar(255), pass varchar(255), testChar CHAR, date TIMESTAMP);
+2021-09-24 15:26:19 INFO  revature.objectmapper.ObjectSaver:271} - SQL INSERT called with query: INSERT INTO "FieldCheck" ( username, pass, testChar, date ) values (?,?,?,?);
+2021-09-24 15:26:19 WARN  revature.objectmapper.ObjectSaver:391} - org.postgresql.util.PSQLException: ERROR: relation "FieldCheck" does not exist
+  Position: 13
+2021-09-24 15:29:25 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 15:29:26 INFO  revature.objectmapper.ObjectSaver:480} - Database Table created with query: DROP Table IF EXISTS FieldCheck; Create Table FieldCheck (id Serial, username varchar(255), pass varchar(255), testChar CHAR, date TIMESTAMP);
+2021-09-24 15:29:26 INFO  revature.objectmapper.ObjectSaver:271} - SQL INSERT called with query: INSERT INTO "FieldCheck" ( username, pass, testChar, date ) values (?,?,?,?);
+2021-09-24 15:29:26 WARN  revature.objectmapper.ObjectSaver:391} - org.postgresql.util.PSQLException: ERROR: relation "FieldCheck" does not exist
+  Position: 13
+2021-09-24 15:30:16 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 15:30:18 INFO  revature.objectmapper.ObjectSaver:480} - Database Table created with query: DROP Table IF EXISTS FieldCheck; Create Table FieldCheck (id Serial, username varchar(255), pass varchar(255), testChar CHAR, date TIMESTAMP);
+2021-09-24 15:30:18 INFO  revature.objectmapper.ObjectSaver:271} - SQL INSERT called with query: INSERT INTO "fieldcheck" ( username, pass, testChar, date ) values (?,?,?,?);
+2021-09-24 15:30:18 INFO  revature.objectmapper.ObjectSaver:413} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-24 15:34:54 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 15:34:56 INFO  revature.objectmapper.ObjectSaver:480} - Database Table created with query: DROP Table IF EXISTS FieldCheck; Create Table FieldCheck (id Serial, username varchar(255), pass varchar(255), testChar CHAR, date TIMESTAMP);
+2021-09-24 15:34:56 INFO  revature.objectmapper.ObjectSaver:271} - SQL INSERT called with query: INSERT INTO "fieldcheck" ( username, pass, testChar, date ) values (?,?,?,?);
+2021-09-24 15:34:56 INFO  revature.objectmapper.ObjectSaver:413} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-24 15:35:27 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 15:35:28 INFO  revature.objectmapper.ObjectSaver:480} - Database Table created with query: DROP Table IF EXISTS FieldCheck; Create Table FieldCheck (id Serial, username varchar(255), pass varchar(255), testChar CHAR, date TIMESTAMP);
+2021-09-24 15:35:28 INFO  revature.objectmapper.ObjectSaver:271} - SQL INSERT called with query: INSERT INTO "fieldcheck" ( username, pass, testChar, date ) values (?,?,?,?);
+2021-09-24 15:35:29 INFO  revature.objectmapper.ObjectSaver:413} - INSERT OBJECT IN DB SUCCESFUL
