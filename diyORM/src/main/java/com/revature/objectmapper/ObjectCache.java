@@ -1,6 +1,14 @@
 package com.revature.objectmapper;
 
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -70,5 +78,29 @@ public class ObjectCache {
 	public static void emptyCache() {
 		getCache().clear();
 	}
+	
+	// TODO: Adding the database to the cache
+	// have to take in table name first
+//	public static void addAllFromDBToCache(final Class<?> clazz, Connection cn) throws NotInCacheException {
+//		String sql = "SELECT * FROM " + clazz.getSimpleName();
+//		List<Field> fields = Arrays.asList(clazz.getDeclaredFields());
+//	    for(Field field: fields) {
+//	        field.setAccessible(true);
+//	    }
+//		try {
+//			Statement stmt = cn.createStatement();
+//			ResultSet rs = stmt.executeQuery(sql);
+//			if (rs != null) {
+//				while (rs.next()) {
+//					addObjToCache(clazz, rs.getRow());
+//					//addObjToCache(clazz, rs.getObject(1));
+//				}
+//			}
+//
+//		} catch (SQLException e) {
+//			log.error("Could not add database to the cache!");
+//			e.printStackTrace();
+//		}
+//	}
 
 }
