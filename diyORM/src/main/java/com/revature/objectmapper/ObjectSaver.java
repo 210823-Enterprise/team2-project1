@@ -310,7 +310,8 @@ public class ObjectSaver extends ObjectMapper {
 							try {
 								f.getAnnotation(Id.class).columnName();
 							} catch (NullPointerException e) {
-								pstmt.setDouble(fieldCounter3, (double) f.get(obj));
+									pstmt.setDouble(fieldCounter3, (double) f.get(obj));
+			
 							}
 						} else {
 							pstmt.setNull(fieldCounter3, Types.BIGINT);

@@ -17,6 +17,9 @@ import com.revature.dummymodels.Test2;
 import com.revature.objectmapper.ObjectMapper;
 import com.revature.util.Configuration;
 import com.revature.util.ConnectionFactory;
+import com.revature.util.MetaModel;
+import com.revature.util.TransactionController;
+
 
 public class OrmDriver {
 
@@ -24,25 +27,16 @@ public class OrmDriver {
 		Configuration cfg = new Configuration();
 		Connection cn = ConnectionFactory.getConnection();
 
-		List<Test> tests = new ArrayList<Test>();
-//		for (int i =0; i<10;i++) {
-//			String user = "user"+i;
-//			String pass = "pass"+i;
-//			tests.add(new Test(i,user,pass));
-//		}
-
-		Test2 test = new Test2(25,"UpdatedUser","UpdatedPass");
+		TransactionController tc = new TransactionController();
+		Test2 test = new Test2(25,"UpdatedUser","UpdatedPass",500.00);
 		FieldCheck field = new FieldCheck("test", "testpass", 'c',new Date());
 		ObjectMapper om = new ObjectMapper();
 		String update = "username,pass";
-		om.addObjectToDB(field, cn);
-		try {
-			cn.commit();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
+		
+		tc.setTransaction(cn);
+		om.addObjectToDB(test, cn);
+		tc.beginCommit(cn);
+		
 //		for (Test test:tests) {
 //			System.out.println("===================================");
 //			System.out.println(om.addObjectToDB(test,cn));

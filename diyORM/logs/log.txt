@@ -1,5 +1,1 @@
-2021-09-24 15:23:40 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
-2021-09-24 15:23:42 INFO  revature.objectmapper.ObjectSaver:480} - Database Table created with query: DROP Table IF EXISTS FieldCheck; Create Table FieldCheck (id Serial, username varchar(255), pass varchar(255), testChar CHAR, date TIMESTAMP);
-2021-09-24 15:23:42 INFO  revature.objectmapper.ObjectSaver:271} - SQL INSERT called with query: INSERT INTO "fieldcheck" ( username, pass, testChar, date ) values (?,?,?,?);
-2021-09-24 15:23:42 INFO  revature.objectmapper.ObjectSaver:413} - INSERT OBJECT IN DB SUCCESFUL
-2021-09-24 15:24:21 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+
