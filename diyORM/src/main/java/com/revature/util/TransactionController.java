@@ -10,11 +10,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 import org.apache.log4j.Logger;
 
 public class TransactionController {
 	private static Logger log = Logger.getLogger(TransactionController.class);
+<<<<<<< HEAD
 	private static Map<String,Savepoint> savepoints = new HashMap<String,Savepoint>();
+=======
+
+
+>>>>>>> ad13cc8df052abc329bc86cd27ec18eded50446d
 	// begin databse commit.
 	public void beginCommit(Connection cn) {
 		try {
@@ -33,8 +39,6 @@ public class TransactionController {
 			e.printStackTrace();
 			log.warn(e);
 		}
-
-	}
 	
 	//disable auto commits on the db
 	public void disableAutoCommit(Connection cn) {
@@ -66,7 +70,11 @@ public class TransactionController {
 			log.info("Rollback committed");
 		} catch (SQLException e) {
 			e.printStackTrace();
+<<<<<<< HEAD
 			log.info("Rollback with savepoint name "+ name+" failed.");
+=======
+
+>>>>>>> ad13cc8df052abc329bc86cd27ec18eded50446d
 			log.warn(e);
 		}
 	}
@@ -77,11 +85,17 @@ public class TransactionController {
 			cn.releaseSavepoint(savepoints.get(name));
 		} catch (SQLException e) {
 			e.printStackTrace();
+<<<<<<< HEAD
 			log.warn("Release Savepoint of name "+name+" failed.");
+=======
+
+			log.warn(e);
+>>>>>>> ad13cc8df052abc329bc86cd27ec18eded50446d
 		}
 	}
 
-	// Set a savepoint with the given name.
+
+	//Set a savepoint with the given name.
 	public void setSavepoint(final String name, Connection cn) {
 		try {
 			Savepoint sp = cn.setSavepoint(name); 
@@ -95,6 +109,5 @@ public class TransactionController {
 	// Start a transaction block.
 	public void setTransaction(Connection cn) {
 		disableAutoCommit(cn);
-
+		}
 	}
-}

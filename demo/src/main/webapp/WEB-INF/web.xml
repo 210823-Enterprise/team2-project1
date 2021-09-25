@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://JAVA.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
-  <!--  We want a UI on the index.html page that will go to the url /login, /process employees -->
   
   <servlet>
     <servlet-name>FrontController</servlet-name>
@@ -13,11 +12,14 @@
   
   <servlet-mapping>
     <servlet-name>FrontController</servlet-name>
-    <url-pattern>/users</url-pattern>
-    <url-pattern>/error</url-pattern>
+    <url-pattern>/insertAccount</url-pattern>
+    <url-pattern>/deleteAccount</url-pattern>
+    <url-pattern>/findAll</url-pattern>
+    <url-pattern>/updateAccount</url-pattern>
   </servlet-mapping>
-  
-  <error-page>
+    
+  <error-page>  
+  	<error-code>500</error-code>
   	<error-code>404</error-code>
   	<location>/error</location>
   </error-page>

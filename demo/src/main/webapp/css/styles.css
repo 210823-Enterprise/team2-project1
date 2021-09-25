@@ -1,14 +1,23 @@
 body {
-    background-image: linear-gradient(30deg, #ffe, aqua);
+    background-image: linear-gradient(30deg, rgb(255, 255, 255), rgb(101, 164, 195));
 }
 
 nav {
     background-image: linear-gradient(205deg, black, grey);
 }
 
-#top-nav {
-    display: flex;
-    justify-content: space-around;
+td {
+    font-size: 1.25rem;
+    font-weight: 450;
+}
+
+#spinner {
+    visibility: visible;
+}
+
+.form-check .form-check-input[type=checkbox] {
+    width: 4rem;
+    height: 2rem;
 }
 
 .btn {
@@ -23,14 +32,13 @@ nav {
     background: #ffffff;
     color: black;
     flex-basis: 100%;
-    font-size: 4em;
+    font-size: 2em;
     margin: .2em;
     border-radius: 10px;
 }
 
 .btn button:hover {
-    background: #80ff00;
-    color: black;
-    box-shadow: 0px 0px 15px .1em black;
-    font-weight: bold;
+    background: #2bff8e;
+    color: rgb(0, 0, 0);
+    box-shadow: 0px 0px 2px .05em rgb(0, 0, 0);
 }

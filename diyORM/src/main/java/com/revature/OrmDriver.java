@@ -7,19 +7,26 @@ import java.util.List;
 
 import com.revature.dummymodels.FieldCheck;
 import com.revature.dummymodels.Test;
+
+import com.revature.exceptions.NotInCacheException;
+import com.revature.objectmapper.ObjectCache;
+import com.revature.objectmapper.ObjectGetter;
+
 import com.revature.dummymodels.Test2;
+
 import com.revature.objectmapper.ObjectMapper;
-import com.revature.util.ColumnField;
 import com.revature.util.Configuration;
 import com.revature.util.ConnectionFactory;
 import com.revature.util.MetaModel;
 import com.revature.util.TransactionController;
 
+
 public class OrmDriver {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws NotInCacheException {
 		Configuration cfg = new Configuration();
 		Connection cn = ConnectionFactory.getConnection();
+
 		TransactionController tc = new TransactionController();
 		Test2 test = new Test2(25,"UpdatedUser","UpdatedPass",500.00);
 		FieldCheck field = new FieldCheck("test", "testpass", 'c',new Date());
@@ -40,6 +47,14 @@ public class OrmDriver {
 //				e.printStackTrace();
 //			}
 //		}
+
+		/**
+		 * Add all from db to cache
+		 */
+//		ObjectCache.addAllFromDBToCache(Test.class, cn);
+//		System.out.println(ObjectCache.getCache());
+		
+
 		//System.out.println(om.removeObjectFromDb(test, cn));
 		
 		//in our configuration object we want to add annotated class, without ever having to instantiate them

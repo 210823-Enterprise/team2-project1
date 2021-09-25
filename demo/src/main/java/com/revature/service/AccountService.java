@@ -27,9 +27,9 @@ public class AccountService {
 
 	}
 
-	public boolean delete(Account e) {
+	public boolean delete(int id) {
 
-		return adao.delete(e);
+		return adao.delete(id);
 
 	}
 

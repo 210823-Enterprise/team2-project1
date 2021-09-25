@@ -472,7 +472,6 @@ public class ObjectSaver extends ObjectMapper {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.execute();
-			conn.commit();
 		} catch (SQLException e) {
 			log.warn(e);
 			e.printStackTrace();
