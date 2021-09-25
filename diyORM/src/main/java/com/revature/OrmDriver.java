@@ -13,23 +13,23 @@ import com.revature.util.ColumnField;
 import com.revature.util.Configuration;
 import com.revature.util.ConnectionFactory;
 import com.revature.util.MetaModel;
+import com.revature.util.TransactionController;
 
 public class OrmDriver {
 
 	public static void main(String[] args) {
 		Configuration cfg = new Configuration();
 		Connection cn = ConnectionFactory.getConnection();
-		Test2 test = new Test2(25,"UpdatedUser","UpdatedPass");
+		TransactionController tc = new TransactionController();
+		Test2 test = new Test2(25,"UpdatedUser","UpdatedPass",500.00);
 		FieldCheck field = new FieldCheck("test", "testpass", 'c',new Date());
 		ObjectMapper om = new ObjectMapper();
 		String update = "username,pass";
-		om.addObjectToDB(field, cn);
-		try {
-			cn.commit();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		tc.setTransaction(cn);
+		om.addObjectToDB(test, cn);
+		tc.beginCommit(cn);
+		
 //		for (Test test:tests) {
 //			System.out.println("===================================");
 //			System.out.println(om.addObjectToDB(test,cn));

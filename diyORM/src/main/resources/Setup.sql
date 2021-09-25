@@ -6,7 +6,7 @@ CREATE TABLE Test2 (
 id Serial,
 username varchar(50),
 pass varchar(50),
-tester DATE
+balance money
 );
 DROP Table IF EXISTS FieldCheck; 
 CREATE TABLE FieldCheck (id Serial,

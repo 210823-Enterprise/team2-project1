@@ -280,3 +280,12 @@
 2021-09-24 15:35:28 INFO  revature.objectmapper.ObjectSaver:480} - Database Table created with query: DROP Table IF EXISTS FieldCheck; Create Table FieldCheck (id Serial, username varchar(255), pass varchar(255), testChar CHAR, date TIMESTAMP);
 2021-09-24 15:35:28 INFO  revature.objectmapper.ObjectSaver:271} - SQL INSERT called with query: INSERT INTO "fieldcheck" ( username, pass, testChar, date ) values (?,?,?,?);
 2021-09-24 15:35:29 INFO  revature.objectmapper.ObjectSaver:413} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-24 18:50:47 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 18:50:48 INFO  revature.objectmapper.ObjectSaver:480} - Database Table created with query: DROP Table IF EXISTS test3; Create Table test3 (id Serial, username varchar(255), pass varchar(255), balance BIGINT);
+2021-09-24 18:50:48 INFO  revature.objectmapper.ObjectSaver:271} - SQL INSERT called with query: INSERT INTO "test3" ( username, pass, balance ) values (?,?,?);
+2021-09-24 18:50:48 INFO  revature.objectmapper.ObjectSaver:413} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-24 18:51:29 INFO  revature.util.ConnectionFactory:46} - Database Connection Established
+2021-09-24 18:51:30 INFO  revature.objectmapper.ObjectSaver:271} - SQL INSERT called with query: INSERT INTO "test2" ( username, pass, balance ) values (?,?,?);
+2021-09-24 18:51:30 WARN  revature.objectmapper.ObjectSaver:391} - org.postgresql.util.PSQLException: ERROR: column "balance" is of type money but expression is of type double precision
+  Hint: You will need to rewrite or cast the expression.
+  Position: 63

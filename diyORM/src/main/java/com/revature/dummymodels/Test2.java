@@ -6,7 +6,7 @@ import com.revature.annotations.Getter;
 import com.revature.annotations.Id;
 import com.revature.annotations.Setter;
 
-@Entity(tableName = "test3")
+@Entity(tableName = "test2")
 public class Test2 {
 	
 	@Id(columnName= "id")
@@ -17,12 +17,16 @@ public class Test2 {
 	
 	@Column(columnName = "pass")
 	public String testPassword;
+	
+	@Column(columnName = "balance")
+	public double cash;
 
-	public Test2(int id, String testUsername, String testPassword) {
+	public Test2(int id, String testUsername, String testPassword, double cash) {
 		super();
 		this.id = id;
 		this.testUsername = testUsername;
 		this.testPassword = testPassword;
+		this.cash = cash;
 	}
 	
 	@Getter(name = "getTestId")
