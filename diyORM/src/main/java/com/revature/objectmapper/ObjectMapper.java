@@ -86,14 +86,19 @@ public class ObjectMapper {
 		}
 
 	}
-
+	
+	/**
+	 *  ObjectRemover
+	 * 
+	 */
 	public boolean removeObjectFromDb(Object obj, Connection conn) {
 		return objectRemover.removeObjectFromDb(obj, conn);
 	}
-	public boolean addObjectToDB(final Object obj,Connection conn) {
-		return objectSaver.addObjectToDB(obj,conn);
-	}
-
+	
+	/**
+	 * ObjectGetter
+	 * 
+	 */
 	public List<Object> getListObjectFromDB(final Class<?> clazz, Connection cn) {
 		return objectGetter.getListObjectFromDB(clazz, cn);
 	}
@@ -105,7 +110,14 @@ public class ObjectMapper {
 			final String conditions, Connection cn) {
 		return objectGetter.getListObjectFromDB(clazz, columns, conditions, cn);
 	}
-
+	
+	/**
+	 * ObjectSaver
+	 * 
+	 */
+	public boolean addObjectToDB(final Object obj,Connection conn) {
+		return objectSaver.addObjectToDB(obj,conn);
+	}
 	public boolean UpdateObjectInDB(final Object obj, final String update_columns, Connection conn) {
 		return objectSaver.UpdateObjectInDB(obj, update_columns, conn);
 	}
