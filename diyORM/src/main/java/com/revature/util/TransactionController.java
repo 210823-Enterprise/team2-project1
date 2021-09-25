@@ -3,13 +3,18 @@ package com.revature.util;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Savepoint;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 
 public class TransactionController {
 	private static Logger log = Logger.getLogger(TransactionController.class);
-
+	private static Map<String,Savepoint> savepoints = new HashMap<String,Savepoint>();
 	// begin databse commit.
 	public void beginCommit(Connection cn) {
 		try {
@@ -44,49 +49,46 @@ public class TransactionController {
 
 	// Rollback to previous commit.
 	public void Rollback(Connection cn) {
-		String sql = "ROLLBACK";
 		try {
-			Statement stmt = cn.createStatement();
-			stmt.execute(sql);
+			cn.rollback();
+			log.info("Rollback committed");
 		} catch (SQLException e) {
 			e.printStackTrace();
+			log.info("Rollback failed");
 			log.warn(e);
 		}
 	}
 
 	// Rollback to previous commit with given name.
 	public void Rollback(final String name, Connection cn) {
-		String sql = "ROLLBACK TO " + name;
 		try {
-			Statement stmt = cn.createStatement();
-			stmt.execute(sql);
+			cn.rollback(savepoints.get(name));
+			log.info("Rollback committed");
 		} catch (SQLException e) {
 			e.printStackTrace();
+			log.info("Rollback with savepoint name "+ name+" failed.");
 			log.warn(e);
 		}
 	}
 
 	// Release the savepoint with the given name.
 	public void ReleaseSavepoint(final String name, Connection cn) {
-		String sql = "RELEASE SAVEPOINT " + name;
 		try {
-			Statement stmt = cn.createStatement();
-			stmt.execute(sql);
+			cn.releaseSavepoint(savepoints.get(name));
 		} catch (SQLException e) {
 			e.printStackTrace();
-			log.warn(e);
+			log.warn("Release Savepoint of name "+name+" failed.");
 		}
 	}
 
 	// Set a savepoint with the given name.
 	public void setSavepoint(final String name, Connection cn) {
-		String sql = "SAVEPOINT " + name;
 		try {
-			Statement stmt = cn.createStatement();
-			stmt.execute(sql);
+			Savepoint sp = cn.setSavepoint(name); 
+			savepoints.put(name,sp);
 		} catch (SQLException e) {
 			e.printStackTrace();
-			log.warn(e);
+			log.warn("Savepoint failed");
 		}
 	}
 
