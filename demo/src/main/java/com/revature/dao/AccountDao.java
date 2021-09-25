@@ -1,66 +1,85 @@
 package com.revature.dao;
 
+import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.List;
 import com.revature.models.Account;
+import com.revature.objectmapper.ObjectMapper;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import com.revature.util.ConnectionFactory;
 import com.revature.util.HibernateUtil;
+import com.revature.util.TransactionController;
 
 public class AccountDao {
 
-	public int insert(Account a) {
+	public boolean insert(Account a) {
 
-		Session ses = HibernateUtil.getSession();
-		Transaction tx = ses.beginTransaction();
+		Connection cn = ConnectionFactory.getConnection();
 
-		int pk = (int) ses.save(a);
+		TransactionController tc = new TransactionController();
 		
-		tx.commit();
+		ObjectMapper om = new ObjectMapper();
 
-		return pk;
+		boolean inserted = om.addObjectToDB(a, cn);
+		
+		tc.beginCommit(cn);
+
+		return inserted;
 
 	}
 
 	public boolean update(Account a){
 		
-		Session ses = HibernateUtil.getSession();
-		Transaction tx = ses.beginTransaction();
-		Account original = ses.load(Account.class, a.getId());
-		original.setAccountName(a.getAccountName());
-		original.setOwnerId(a.getOwnerId());
-		original.setBalance(a.getBalance());
-		ses.update(original);
+		Connection cn = ConnectionFactory.getConnection();
+
+		TransactionController tc = new TransactionController();
 		
-		tx.commit();
+		ObjectMapper om = new ObjectMapper();
+		
+		boolean updated = om.UpdateObjectInDB(a, "id, accountName, ownerId, balance", cn);
+		
+		tc.beginCommit(cn);
 		
 		//TODO check updated object or do try/catch for hibernate expection
-		return false;
+		return updated;
 	}
 
-	public boolean delete(int id) {
+	public boolean delete(Account a) {
 		
-		Session ses = HibernateUtil.getSession();
-		Transaction tx = ses.beginTransaction();
+		Connection cn = ConnectionFactory.getConnection();
+
+		TransactionController tc = new TransactionController();
 		
-	    Query q = ses.createQuery("delete from Account where id = :id ");
-	    q.setParameter("id", id);
-        q.executeUpdate();
+		ObjectMapper om = new ObjectMapper();
+	    
+		boolean deleted = om.removeObjectFromDb(a, cn);
         
-		tx.commit();
+		tc.beginCommit(cn);
 		
 		//TODO check deleted object or do try/catch for hibernate expection
-		return false;
+		return deleted;
 	}
 
 	public List<Account> findAll() {
 
-		Session ses = HibernateUtil.getSession();
+		Connection cn = ConnectionFactory.getConnection();
 
-		List<Account> accounts = ses.createQuery("from Account", Account.class).list();
+		TransactionController tc = new TransactionController();
+		
+		ObjectMapper om = new ObjectMapper();
+		
+		ArrayList<Account> arrAcc = new ArrayList<Account>();
+		
+		List<Object> arrObj = om.getListObjectFromDB(Account.class, cn);
+		
+		for(Object o : arrObj) {
+			arrAcc.add((Account) o);
+		}
 
-		return accounts;
+		return arrAcc;
 	}
 }

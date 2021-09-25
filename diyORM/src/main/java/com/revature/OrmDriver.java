@@ -27,15 +27,15 @@ public class OrmDriver {
 		Configuration cfg = new Configuration();
 		Connection cn = ConnectionFactory.getConnection();
 
-		TransactionController tc = new TransactionController();
-		Test2 test = new Test2(25,"UpdatedUser","UpdatedPass",500.00);
-		FieldCheck field = new FieldCheck("test", "testpass", 'c',new Date());
+//		TransactionController tc = new TransactionController();
+//		//Test2 test = new Test2(25,"UpdatedUser","UpdatedPass",500.00);
+//		FieldCheck field = new FieldCheck("test", "testpass", 'c',new Date());
 		ObjectMapper om = new ObjectMapper();
-		String update = "username,pass";
-		
-		tc.setTransaction(cn);
-		om.addObjectToDB(test, cn);
-		tc.beginCommit(cn);
+//		String update = "username,pass";
+//		
+//		tc.setTransaction(cn);
+//		om.addObjectToDB(test, cn);
+//		tc.beginCommit(cn);
 		
 //		for (Test test:tests) {
 //			System.out.println("===================================");
@@ -51,8 +51,8 @@ public class OrmDriver {
 		/**
 		 * Add all from db to cache
 		 */
-//		ObjectCache.addAllFromDBToCache(Test.class, cn);
-//		System.out.println(ObjectCache.getCache());
+		System.out.println(om.getListObjectFromDB(Test.class, cn));
+		//System.out.println(ObjectCache.getCache());
 		
 
 		//System.out.println(om.removeObjectFromDb(test, cn));
@@ -60,7 +60,7 @@ public class OrmDriver {
 		//in our configuration object we want to add annotated class, without ever having to instantiate them
 		// Hibernate maps class to apply reflection to (introspect)
 		
-		cfg.addAnnotatedClass(Test.class);
+//		cfg.addAnnotatedClass(Test.class);
 		
 		// this is just to prove we have succesfully transformed test to a metamodel, readable by our framework
 		//let's iterate over all meta models that exist in the config object
