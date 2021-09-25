@@ -5,10 +5,19 @@ Something like: A java based ORM for simplifying connecting to and from an SQL d
 
 ## Technologies Used
 
-* PostgreSQL - version 42.2.12  
+* PostgreSQL - version 42.2.18  
 * Java - version 8.0  
-* Apache commons - version 2.1  
-* JUnit
+* Apache commons - version 2.1.1  
+* JUnit - version 4.12
+* log4j - version 1.2.17
+
+## Technologies Used In Demo
+
+* javax.servlet - version 3.1.0
+* fasterxml - version 2.8.9
+* HTML5
+* CSS3
+* JavaScript - version ECMAScript 2021
 
 ## Features
 
@@ -16,19 +25,25 @@ List of features ready and TODOs for future development
 * Easy to use and straightforward user API.  
 * No need for SQL, HQL, or any databse specific language.  
 * Straightforward and simple Annotation based for ease of use. 
-* etc...
+* Allow ORM to build table based on Annotations in Entities.
+* Objects can have fields of type: String, int, Integer, long, Long, double, Double, float, Float, BigDecimal, char, Character, Date, boolean
 
 To-do list: [`for future iterations`]
-* Mapping of join columns inside of entities.    
-* Implement of aggregate functions.  
-* Allow ORM to build table based on Annotations in Entities.  
-* etc...
+* Mapping of join columns inside of entities.
+* Implement of aggregate functions.
+* Uses getter and setter annotations to take in private fields
+* Connect to different types of databases
+* Allowing currency types
+
+Known Issues
+* Unable to read .properties file dynamically
+* Unable to read private fields to get objects from the database
 
 ## Getting Started  
 Currently project must be included as local dependency. to do so:
 ```shell
-  git clone https://github.com/210517-Enterprise/*your-repo*_p1.git
-  cd *your-repo*_p1
+  git clone https://github.com/210823-Enterprise/team2-project1/diyORM.git
+  cd diyORM
   mvn install
 ```
 Next, place the following inside your project pom.xml file:
@@ -36,7 +51,7 @@ Next, place the following inside your project pom.xml file:
   <dependency>
     <groupId>com.revature</groupId>
     <artifactId>diyORM</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
   </dependency>
 
 ```
@@ -45,55 +60,57 @@ Finally, inside your project structure you need a application.proprties file.
  (typically located src/main/resources/)
  ``` 
   url=path/to/database
-  admin-usr=username/of/database
-  admin-pw=password/of/database  
+  username=username/of/database
+  password=password/of/database  
   ```
   
 ## Usage  
   ### Annotating classes  
   All classes which represent objects in database must be annotated.
-   - #### @Table(name = "table_name)  
-      - Indicates that this class is associated with table 'table_name'  
+   - #### @Entity(name = "table_name)  
+      - Indicates that this class is associated with table 'table_name' 
+   - #### @Id(name = "column_name") 
+      - Indicates that the annotated field is the primary key for the table. 
    - #### @Column(name = "column_name)  
       - Indicates that the Annotated field is a column in the table with the name 'column_name'  
    - #### @Setter(name = "column_name")  
       - Indicates that the anotated method is a setter for 'column_name'.  
    - #### @Getter(name = "column_name")  
       - Indicates that the anotated method is a getter for 'column_name'.  
-   - #### @PrimaryKey(name = "column_name") 
-      - Indicates that the annotated field is the primary key for the table.
    - #### @SerialKey(name = "column_name") 
       - Indicates that the annotated field is a serial key.
+      - To be implemented
+   - #### @JoinColumn (To be implemented/stretch goal)
 
   ### User API  
   
-  - #### `public static Something getInstance()`  
+  - #### `public static ConnectionFactory getInstance()`  
      - returns the singleton instance of the class. It is the starting point to calling any of the below methods.  
   - #### `public HashMap<Class<?>, HashSet<Object>> getCache()`  
      - returns the cache as a HashMap.  
-  - #### `public boolean addClass(final Class<?> clazz)`  
-     - Adds a class to the ORM. This is the method to use to declare a Class is an object inside of the database.  
-  - #### `public boolean UpdateObjectInDB(final Object obj,final String update_columns)`  
-     - Updates the given object in the databse. Update columns is a comma seperated lsit fo all columns in the onject which need to be updated  
+  - #### `public boolean addTableToDb(Object obj, Connection conn)`  
+     - Adds a table to the database using the fields as columns.  
+  - #### `public boolean UpdateObjectInDB(final Object obj, final String update_columns, Connection conn)`  
+     - Updates the given object in the databse. Update columns is a comma seperated list for all columns in the object which needs to be updated
   - #### `public boolean removeObjectFromDB(final Object obj)`  
      - Removes the given object from the database.  
   - #### `public boolean addObjectToDB(final Object obj)`  
      - Adds the given object to the database.  
-  - #### `public Optional<List<Object>> getListObjectFromDB(final Class <?> clazz, final String columns, final String conditions)`  
-  - #### `public Optional<List<Object>> getListObjectFromDB(final Class <?> clazz, final String columns, final String conditions,final String operators)`  
-  - #### `public Optional<List<Object>> getListObjectFromDB(final Class<?> clazz)`  
+  - #### `public List<Object> getListObjectFromDB(final Class <?> clazz, final String columns, final String conditions)`  
+  - #### `public List<Object> getListObjectFromDB(final Class <?> clazz, final String columns, final String conditions,final String operators)`  
+  - #### `public List<Object> getListObjectFromDB(final Class<?> clazz)`  
      - Gets a list of all objects in the database which match the included search criteria  
         - columns - comma seperated list of columns to search by.  
         - conditions - coma seperated list the values the columns should match to.  
         - operators - comma seperated list of operators to apply to columns (AND/OR) in order that they should be applied.  
   - #### `public void beginCommit()`  
-     - begin databse commit.  
+     - Begin databse commit.
   - #### `public void Rollback()`  
-     - Rollback to previous commit.  
+     - Rollback to previous commit.
   - #### `public void Rollback(final String name)`  
-     - Rollback to previous commit with given name.  
+     - Rollback to previous commit with given name.
   - #### `public void setSavepoint(final String name)`  
-     - Set a savepoint with the given name.  
+     - Set a savepoint with the given name.
   - #### `public void ReleaseSavepoint(final String name)`  
      - Release the savepoint with the given name.  
   - #### `public void enableAutoCommit()`  
@@ -101,7 +118,7 @@ Finally, inside your project structure you need a application.proprties file.
   - #### `public void setTransaction()`  
      - Start a transaction block.  
   - #### `public void addAllFromDBToCache(final Class<?> clazz)`  
-     - Adds all objects currently in the databse of the given clas type to the cache.  
+     - Adds all objects currently in the databse of the given class type to the cache.  
 
 
 
