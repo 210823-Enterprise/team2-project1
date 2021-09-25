@@ -1,6 +1,14 @@
 package com.revature.objectmapper;
 
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -17,9 +25,8 @@ import com.revature.exceptions.NotInCacheException;
 public class ObjectCache {
 
 	public final HashMap<Class<?>, HashSet<Object>> cache = new HashMap<Class<?>, HashSet<Object>>();
-	static private final ObjectCache obj_cache = new ObjectCache();
-
-	static Logger log = Logger.getLogger(ObjectCache.class);
+	private static final ObjectCache obj_cache = new ObjectCache();
+	private static Logger log = Logger.getLogger(ObjectCache.class);
 	
 	// To return the cache you need to use: getInstance().cache
 	public static ObjectCache getInstance() {
@@ -69,6 +76,13 @@ public class ObjectCache {
 	// Clears the cache
 	public static void emptyCache() {
 		getCache().clear();
+	}
+	
+	
+	public static void addAllFromDBToCache(final Class<?> clazz, Connection cn) throws NotInCacheException {
+		ObjectGetter objectGetter = new ObjectGetter();
+		HashSet<Object> hs = new HashSet<Object>(objectGetter.getListObjectFromDB(clazz, cn));
+		getCache().put(clazz, hs);
 	}
 
 }

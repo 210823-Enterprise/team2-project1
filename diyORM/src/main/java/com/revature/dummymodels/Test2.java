@@ -6,8 +6,8 @@ import com.revature.annotations.Getter;
 import com.revature.annotations.Id;
 import com.revature.annotations.Setter;
 
-@Entity(tableName = "test")
-public class Test {
+@Entity(tableName = "test3")
+public class Test2 {
 	
 	@Id(columnName= "id")
 	public int id;
@@ -17,12 +17,8 @@ public class Test {
 	
 	@Column(columnName = "pass")
 	public String testPassword;
-	
-	public Test() {
-		
-	}
-	
-	public Test(int id, String testUsername, String testPassword) {
+
+	public Test2(int id, String testUsername, String testPassword) {
 		super();
 		this.id = id;
 		this.testUsername = testUsername;
@@ -57,11 +53,5 @@ public class Test {
 	public void setTestPassword(String testPassword) {
 		this.testPassword = testPassword;
 	}
-
-	@Override
-	public String toString() {
-		return "Test [id=" + id + ", testUsername=" + testUsername + ", testPassword=" + testPassword + "]";
-	}
-	
-	
 }
+
