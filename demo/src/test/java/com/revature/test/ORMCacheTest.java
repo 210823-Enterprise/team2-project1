@@ -17,45 +17,49 @@ public class ORMCacheTest {
 	
 	private Account acc;
 	private Class<?> clazz;
-	private HashMap<Class<?>, HashSet<Object>> hmTest;
+	private HashMap<Class<?>, HashSet<Object>> hmAccountTest;
 	
 	@Before
 	public void setup() {
+		clazz = Account.class;
 		acc = new Account(4, "nate", 3, 700.65);
-		hmTest = new HashMap<Class<?>, HashSet<Object>>();
-		hmTest.put(clazz, new HashSet<>());
-		hmTest.get(clazz).add(acc);
+		hmAccountTest = new HashMap<Class<?>, HashSet<Object>>();
+		hmAccountTest.put(clazz, new HashSet<>());
+		hmAccountTest.get(clazz).add(acc);
 	}
 	
 	@After
 	public void teardown() {
 		acc = null;
-		hmTest = null;
+		hmAccountTest = null;
 		ObjectCache.emptyCache();
 	}
 	
 	@Test
-	public void addObjToCache_success() throws NotInCacheException {
-		clazz = Account.class; 
+	public void getCache_success() throws NotInCacheException {
 		
 		ObjectCache.addObjToCache(clazz, acc);
 		
-		hmTest = ObjectCache.getInstance().cache;
+		assertEquals(hmAccountTest, ObjectCache.getCache());
+	}
+	
+	@Test
+	public void addObjToCache_success() throws NotInCacheException {
 		
-		assertEquals(hmTest.get(clazz), hmTest.get(clazz));
+		ObjectCache.addObjToCache(clazz, acc);
+		
+		assertEquals(hmAccountTest.get(clazz), hmAccountTest.get(clazz));
 	}
 	
 	@Test
 	public void removeObjFromCache_success() throws NotInCacheException {
-		clazz = Account.class;
 		
 		ObjectCache.addObjToCache(clazz, acc);
 		
-		hmTest = ObjectCache.getInstance().cache;
-		
 		ObjectCache.removeObjFromCache(clazz, acc);
 		
-		assertEquals(hmTest.get(clazz), hmTest.get(clazz));
+		assertEquals(hmAccountTest.get(clazz), hmAccountTest.get(clazz));
 	}
+	
 
 }

@@ -11,22 +11,17 @@ public class FrontController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		// save the URI and rewrite it to determine what functionality the user is requesting based on URL
-		final String URI = request.getRequestURI().replace("/FrontControllerDemo/", "");
+		final String URI = request.getRequestURI().replace("/T2-Demo/", "");
 		
 		switch(URI) {
-		case "users":
-			RequestHelper.processUsers(request, response);
-			break;
-		case "error":
-			RequestHelper.processError(request, response);
+		case "findAll":
+			RequestHelper.findAllAccounts(request, response);
 			break;
 		default:
 			RequestHelper.processError(request, response);
 			break;
 		}
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -34,16 +29,43 @@ public class FrontController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		final String URI = request.getRequestURI().replace("/FrontControllerDemo/", "");
+		final String URI = request.getRequestURI().replace("/T2-Demo/", "");
 		
 		switch(URI) {
-		case "newuser":
-			RequestHelper.processNewUser(request, response);
+		case "insertAccount":
+			RequestHelper.insertAccount(request, response);
 			break;
 		default:
 			RequestHelper.processError(request, response);
 			break;
 		}
 	}
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
+		final String URI = request.getRequestURI().replace("/T2-Demo/", "");
+		
+		switch(URI) {
+		case "deleteAccount":
+			RequestHelper.deleteAccount(request, response);
+			break;
+		default:
+			RequestHelper.processError(request, response);
+			break;
+		}
+	}
+	protected void doPut(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		final String URI = request.getRequestURI().replace("/T2-Demo/", "");
+		
+		switch(URI) {
+		case "updateAccount":
+			RequestHelper.updateAccount(request, response);
+			break;
+		default:
+			RequestHelper.processError(request, response);
+			break;
+		}
+	}
 }

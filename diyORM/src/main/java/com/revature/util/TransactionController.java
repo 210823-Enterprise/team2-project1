@@ -5,10 +5,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+
 import org.apache.log4j.Logger;
 
 public class TransactionController {
 	private static Logger log = Logger.getLogger(TransactionController.class);
+
 
 	// begin databse commit.
 	public void beginCommit(Connection cn) {
@@ -28,8 +30,6 @@ public class TransactionController {
 			e.printStackTrace();
 			log.warn(e);
 		}
-
-	}
 	
 	//disable auto commits on the db
 	public void disableAutoCommit(Connection cn) {
@@ -62,6 +62,7 @@ public class TransactionController {
 			stmt.execute(sql);
 		} catch (SQLException e) {
 			e.printStackTrace();
+
 			log.warn(e);
 		}
 	}
@@ -74,11 +75,13 @@ public class TransactionController {
 			stmt.execute(sql);
 		} catch (SQLException e) {
 			e.printStackTrace();
+
 			log.warn(e);
 		}
 	}
 
-	// Set a savepoint with the given name.
+
+	//Set a savepoint with the given name.
 	public void setSavepoint(final String name, Connection cn) {
 		String sql = "SAVEPOINT " + name;
 		try {
@@ -93,6 +96,5 @@ public class TransactionController {
 	// Start a transaction block.
 	public void setTransaction(Connection cn) {
 		disableAutoCommit(cn);
-
+		}
 	}
-}

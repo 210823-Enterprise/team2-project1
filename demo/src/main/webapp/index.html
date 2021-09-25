@@ -11,39 +11,56 @@
         </script>         
     </head>     
     <body> 
-        <nav class="bg-dark bg-gradient navbar navbar-dark  opacity-85 shadow"> 
-            <div id="top-nav" class="container-fluid"> 
-                <span class="h4 navbar-text text-white">T2-ORM Framework</span> 
-                <span class="fs-5 navbar-text text-white">Nathan Lee  -  Ryan McOmber  -  Jacen Wyke</span> 
-            </div>             
-        </nav>
-        <div class="align-items-stretch container-fluid d-flex flex-wrap g-5 gap-5 min-vh-100">
-            <div class="background-cover bg-gradient bg-secondary flex-nowrap gap-5 gx-5 row row-cols-2">
-                <div class="bg-gradient bg-secondary">
-                    <h3 class="border-bottom border-light mt-5 rounded text-center text-white">Operations:</h3>
-                    <div class="btn"> 
-                        <button>Insert</button>                         
-                        <button>Update</button>                         
-                        <button>Delete</button>                         
-                    </div>
-                    <h3 class="border-bottom border-light mt-5 rounded text-center text-white">Connections:</h3>
-                    <h4 class="fst-italic text-center text-light">#6</h4>
-                    <h3 class="border-bottom border-light mt-5 rounded text-center text-white">Database:</h3>
-                    <h4 class="fst-italic text-center text-light">Postgres&nbsp;42.2.5</h4> 
+        <nav class="align-items-baseline bg-dark bg-gradient d-flex justify-content-around navbar navbar-dark  opacity-85 shadow"> 
+            <span class="h4 navbar-text text-white">T2-ORM Framework</span>
+            <span class="fs-5 navbar-text text-white">Nathan Lee  -  Ryan McOmber  -  Jacen Wyke</span> 
+        </nav>         
+        <div class="container-fluid d-flex gap-5 gx-5 mt-3 vh-100"> 
+            <div class="bg-secondary border border-1 border-light col-4 rounded shadow"> 
+                <h3 class="bg-gradient bg-secondary border border-1 border-end-0 border-light border-start-0 border-top-0 mb-3 pb-2 pe-5 ps-5 pt-2 rounded shadow text-center text-white">Input</h3>
+                <div class="align-items-end flex-row input-group input-group-lg justify-content-start mb-3 pe-4 ps-4">
+                    <select id="selection" class="form-select fw-bold" aria-label="Default select example" onChange="operationSelection(this.value)"> 
+                        <!--<option selected>Open this select menu</option>-->                         
+                        <option value="insert">Insert</option>                         
+                        <option value="update">Update</option>                         
+                        <option value="delete">Delete</option>                         
+                    </select>
+                    <button type="button" class="btn btn-primary fw-bolder pe-5 ps-5 text-uppercase" onclick="makeRequest()">Send</button>                     
                 </div>
-                <div class="col-md-4"> 
-                    <h3 class="border-bottom border-light mt-5 rounded text-center text-white">Accounts:</h3> 
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p> 
+                <div class="align-items-end input-group input-group-lg mb-3 mt-3 pe-4 ps-4"> 
+                    <input type="text" class="form-control mb-3 mt-3" placeholder="Name, Owner, Balance" id="command"> 
                 </div>
+                <div class="align-items-center d-flex form-check form-switch gap-5 justify-content-center">
+                    <input class="d-flex form-check-input pe-5" type="checkbox" id="flexSwitchCheckDefault" checked="checked">
+                    <label class="align-self-center form-check-label fs-4 fw-normal text-light" for="flexSwitchCheckDefault">Auto-Commit</label>
+                </div>
+                <h3 class="bg-gradient bg-secondary border border-1 border-end-0 border-light border-start-0 mb-3 mt-3 pb-2 pe-5 ps-5 pt-2 rounded shadow text-center text-white">Database</h3>
+                <h4 class="mt-4 text-center text-white" id="database">Postgres 42.6.2 </h4> 
+                <h3 class="bg-gradient bg-secondary border border-1 border-end-0 border-light border-start-0 mb-3 mt-3 pb-2 pe-5 ps-5 pt-2 rounded shadow text-center text-white">Connections</h3> 
+                <h4 class="mt-4 text-center text-white" id="connections">#6</h4> 
+            </div>
+            <div class="col-md-4 flex-grow-1 "> 
+                <h3 class="bg-gradient bg-secondary border border-1 border-light mb-3 pb-2 pe-5 ps-5 pt-2 rounded shadow text-center text-white">Accounts Table<div class="float-start  pinegrow-ui-helper-relative spinner-border" role="status" id="spinner"> 
+                        <span class="visually-hidden">Loading...</span> 
+                    </div></h3> 
+                <table class="table table-hover table-striped"> 
+                    <thead> 
+                        <tr> 
+                            <th scope="col">#ID</th> 
+                            <th scope="col">Name</th> 
+                            <th scope="col">Owner</th> 
+                            <th scope="col">Balance</th> 
+                        </tr>                         
+                    </thead>                     
+                    <tbody id="accountsTable"> 
+</tbody>                     
+                </table>                 
             </div>
         </div>         
-        <!--  This button will trigger the employees url pattern ->  -->         
-        <nav class="bg-dark bg-gradient navbar navbar-dark opacity-75 shadow text-center"> 
+        <nav class="bg-dark bg-gradient fixed-bottom navbar navbar-dark opacity-75 shadow text-center"> 
             <div class="container-fluid justify-content-center"> 
                 <span class="fst-italic navbar-text text-white"><h6 class="fst-normal text-decoration-none">&copy;&nbsp; 2021.&nbsp; All Rights Reserved. Revature LLC.</h6></span> 
             </div>             
-        </nav>         
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>         
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>         
+        </nav>                           
     </body>     
 </html>

@@ -28,21 +28,18 @@ public class Account {
 	public Account() {
 		super();
 	}
-	
+	public Account(String accountName, int ownerId, double balance) {
+		super();
+		this.balance = balance;
+		this.ownerId = ownerId;
+		this.accountName = accountName;
+	}
 	public Account(int id, String accountName, int ownerId, double balance) {
 		super();
 		this.id = id;
 		this.balance = balance;
 		this.ownerId = ownerId;
 		this.accountName = accountName;
-	}
-
-	public int getPrimaryOwnerId() {
-		return ownerId;
-	}
-
-	public void setPrimaryOwnerId(int primaryOwnerId) {
-		this.ownerId = primaryOwnerId;
 	}
 
 	public int getId() {
