@@ -1,7 +1,7 @@
-# Our ORM Name
+# diyORM
 
 ## Project Description
-Something like: A java based ORM for simplifying connecting to and from an SQL database without the need for SQL or connection management. 
+A java based ORM for simplifying connecting to and from a postgres database without the need for SQL or connection management. Servlet demo - https://github.com/210823-Enterprise/team2-project1/demo
 
 ## Technologies Used
 
@@ -34,6 +34,7 @@ To-do list: [`for future iterations`]
 * Uses getter and setter annotations to take in private fields
 * Connect to different types of databases
 * Allowing currency types
+* Allow for custom queries
 
 Known Issues
 * Unable to read .properties file dynamically
