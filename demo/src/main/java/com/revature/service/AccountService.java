@@ -15,7 +15,7 @@ public class AccountService {
 		this.adao = dao;
 	}
 
-	public int insert(Account e) {
+	public boolean insert(Account e) {
 
 		return adao.insert(e);
 
@@ -27,9 +27,9 @@ public class AccountService {
 
 	}
 
-	public boolean delete(int id) {
+	public boolean delete(Account a) {
 
-		return adao.delete(id);
+		return adao.delete(a);
 
 	}
 
