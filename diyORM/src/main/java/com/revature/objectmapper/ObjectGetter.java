@@ -14,6 +14,7 @@ import java.util.Optional;
 import org.apache.log4j.Logger;
 
 import com.revature.annotations.Column;
+import com.revature.annotations.Entity;
 import com.revature.annotations.Id;
 
 public class ObjectGetter extends ObjectMapper {
@@ -30,7 +31,7 @@ public class ObjectGetter extends ObjectMapper {
 	
 	public List<Object> getListObjectFromDB(final Class<?> clazz, final String columns,
 			 Connection cn) {
-		String sql = "SELECT " + columns + " FROM " + clazz.getSimpleName();
+		String sql = "SELECT " + columns + " FROM " + clazz.getAnnotation(Entity.class).tableName();
 
 		List<Object> objsList = new ArrayList<Object>();
 		String[] arrColumns = columns.split(",");
@@ -397,7 +398,7 @@ public class ObjectGetter extends ObjectMapper {
 	}
 
 	public List<Object> getListObjectFromDB(final Class<?> clazz, Connection cn) {
-		String sql = "SELECT * FROM " + clazz.getSimpleName();
+		String sql = "SELECT * FROM " + clazz.getAnnotation(Entity.class).tableName();
 
 		List<Object> objsList = new ArrayList<Object>();
 		try {

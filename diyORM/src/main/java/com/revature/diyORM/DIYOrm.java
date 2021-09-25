@@ -16,7 +16,7 @@ public class DIYOrm {
 	// obj getter, etc.....
 	
 	private DIYOrm() {
-		conn = ConnectionFactory.getInstance().getConnection();
+		conn = ConnectionFactory.getConnection();
 		obj_mapper =   ObjectMapper.getInstance();
 		
 		

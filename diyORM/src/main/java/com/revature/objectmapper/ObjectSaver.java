@@ -28,8 +28,11 @@ public class ObjectSaver extends ObjectMapper {
 	// since that is how the function finds the entry to update.
 	public boolean UpdateObjectInDB(final Object obj, final String update_columns, Connection conn)
 			throws IllegalArgumentException {
-		update_columns.replace(" ", "");
-		String[] columns = update_columns.split(",");
+		String u_columns = update_columns.replace(" ", "");
+		String[] columns = u_columns.split(",");
+		for(String c:columns) {
+			System.out.println(c);
+		}
 		Field[] fields = obj.getClass().getDeclaredFields();
 		List<Field> fieldsToUpdate = new ArrayList<Field>();
 		int id = 0;

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.revature.dummymodels.Account;
 import com.revature.dummymodels.FieldCheck;
 import com.revature.dummymodels.Test;
 
@@ -51,6 +52,9 @@ public class OrmDriver {
 		/**
 		 * Add all from db to cache
 		 */
+		List<Account> accounts = new ArrayList<>();
+		
+		System.out.println(om.getListObjectFromDB(Account.class, cn));
 		System.out.println(om.getListObjectFromDB(Test.class, cn));
 		//System.out.println(ObjectCache.getCache());
 		
