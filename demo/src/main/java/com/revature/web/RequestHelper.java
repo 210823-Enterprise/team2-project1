@@ -96,12 +96,18 @@ public class RequestHelper {
 			session.setAttribute("the-user", u);
 	}
 	
+	public static void processError(HttpServletRequest request, HttpServletResponse response, Exception e) throws IOException, ServletException {
+		
+		// if something goes wrong, redirect the user to a custom 404 error page
+		request.getRequestDispatcher("error.html").forward(request, response);
+		response.getWriter().println(e.toString());
+	}
 	public static void processError(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		
 		// if something goes wrong, redirect the user to a custom 404 error page
 		request.getRequestDispatcher("error.html").forward(request, response);
+		response.getWriter().println("It seems you have the wrong address...");
 	}
-	
 	public static void findAllAccounts(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
 		
 		List<Account> accounts = aserv.findAll();

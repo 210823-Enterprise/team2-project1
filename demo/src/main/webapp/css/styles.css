@@ -6,6 +6,20 @@ nav {
     background-image: linear-gradient(205deg, black, grey);
 }
 
+td {
+    font-size: 1.25rem;
+    font-weight: 450;
+}
+
+#spinner {
+    visibility: visible;
+}
+
+.form-check .form-check-input[type=checkbox] {
+    width: 4rem;
+    height: 2rem;
+}
+
 .btn {
     display: flex;
     align-items: center;

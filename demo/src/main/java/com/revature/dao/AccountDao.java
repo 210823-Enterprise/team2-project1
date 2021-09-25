@@ -24,11 +24,15 @@ public class AccountDao {
 
 	}
 
-	public boolean update(Account a) {
+	public boolean update(Account a){
 		
 		Session ses = HibernateUtil.getSession();
 		Transaction tx = ses.beginTransaction();
-		ses.update(a);
+		Account original = ses.load(Account.class, a.getId());
+		original.setAccountName(a.getAccountName());
+		original.setOwnerId(a.getOwnerId());
+		original.setBalance(a.getBalance());
+		ses.update(original);
 		
 		tx.commit();
 		

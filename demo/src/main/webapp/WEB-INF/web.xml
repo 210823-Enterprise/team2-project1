@@ -16,10 +16,10 @@
     <url-pattern>/deleteAccount</url-pattern>
     <url-pattern>/findAll</url-pattern>
     <url-pattern>/updateAccount</url-pattern>
-    <url-pattern>/error</url-pattern>
   </servlet-mapping>
-  
-  <error-page>
+    
+  <error-page>  
+  	<error-code>500</error-code>
   	<error-code>404</error-code>
   	<location>/error</location>
   </error-page>
