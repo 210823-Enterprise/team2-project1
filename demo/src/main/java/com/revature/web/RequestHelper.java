@@ -132,7 +132,12 @@ public class RequestHelper {
 	}
 	public static void deleteAccount(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
 		
-		String id = request.getParameter("id");
-		aserv.delete(Integer.valueOf(id));
+		int id = Integer.parseInt(request.getParameter("id"));
+		Account a = new Account(id);
+		aserv.delete(a);
+	}
+	public static void updateAutoCommit(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+		System.out.println(request.getParameter("choice"));
+		
 	}
 }

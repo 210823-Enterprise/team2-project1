@@ -16,6 +16,7 @@
     <url-pattern>/deleteAccount</url-pattern>
     <url-pattern>/findAll</url-pattern>
     <url-pattern>/updateAccount</url-pattern>
+    <url-pattern>/updateAutoCommit</url-pattern>
   </servlet-mapping>
     
   <error-page>  

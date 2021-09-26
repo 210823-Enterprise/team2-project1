@@ -16,7 +16,6 @@ public class AccountService {
 	}
 
 	public boolean insert(Account e) {
-
 		return adao.insert(e);
 
 	}
@@ -28,7 +27,6 @@ public class AccountService {
 	}
 
 	public boolean delete(Account a) {
-
 		return adao.delete(a);
 
 	}

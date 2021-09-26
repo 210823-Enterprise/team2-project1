@@ -63,6 +63,8 @@ public class FrontController extends HttpServlet {
 		case "updateAccount":
 			RequestHelper.updateAccount(request, response);
 			break;
+		case "updateAutoCommit":
+			RequestHelper.updateAutoCommit(request,response);
 		default:
 			RequestHelper.processError(request, response);
 			break;

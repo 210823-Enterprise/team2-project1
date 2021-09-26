@@ -28,8 +28,8 @@ public class ObjectSaver extends ObjectMapper {
 	// since that is how the function finds the entry to update.
 	public boolean UpdateObjectInDB(final Object obj, final String update_columns, Connection conn)
 			throws IllegalArgumentException {
-		update_columns.replace(" ", "");
-		String[] columns = update_columns.split(",");
+		String u_columns = update_columns.replace(" ", "");
+		String[] columns = u_columns.split(",");
 		Field[] fields = obj.getClass().getDeclaredFields();
 		List<Field> fieldsToUpdate = new ArrayList<Field>();
 		int id = 0;
@@ -192,7 +192,6 @@ public class ObjectSaver extends ObjectMapper {
 			pstmt.execute();
 			rs = pstmt.getGeneratedKeys();
 			// newId = rs.getLong("id"); //in case we want to return the id.
-			// System.out.println(newId); //here for debugging
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -240,7 +239,6 @@ public class ObjectSaver extends ObjectMapper {
 
 		int fieldCounter = 0;
 		for (Field f : fields) {
-			System.out.println();
 			fieldCounter++;
 			// add field names to sql string
 			try {
@@ -467,11 +465,10 @@ public class ObjectSaver extends ObjectMapper {
 			}
 		}
 		sql += ");";
-		System.out.println(sql);
 		PreparedStatement pstmt = null;
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.execute();
+			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			log.warn(e);
 			e.printStackTrace();

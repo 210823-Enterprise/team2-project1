@@ -1,10 +1,12 @@
-package com.revature.models;
+package com.revature.dummymodels;
 
 import java.util.Objects;
 
 import com.revature.annotations.Column;
 import com.revature.annotations.Entity;
+import com.revature.annotations.Getter;
 import com.revature.annotations.Id;
+import com.revature.annotations.Setter;
 
 @Entity(tableName = "account")
 public class Account {
@@ -13,7 +15,7 @@ public class Account {
 	@Id(columnName = "id")
 	public int id;
 	
-	@Column(columnName = "accountName")
+	@Column(columnName = "accountname")
 	public String accountName;
 	@Column(columnName = "ownerId")
 	public int ownerId;
@@ -22,10 +24,6 @@ public class Account {
 
 	public Account() {
 		super();
-	}
-	public Account(int id) {
-		super();
-		this.id = id;
 	}
 	public Account(String accountName, int ownerId, double balance) {
 		super();
@@ -40,27 +38,28 @@ public class Account {
 		this.ownerId = ownerId;
 		this.accountName = accountName;
 	}
-
+	
+	@Getter(name = "GetAccountId")
 	public int getId() {
 		return id;
 	}
-
+	@Setter(name = "SetAccountId")
 	public void setId(int id) {
 		this.id = id;
 	}
-
+	@Getter(name = "GetAccountBalance")
 	public double getBalance() {
 		return balance;
 	}
-
+	@Setter(name = "SetAccountBalance")
 	public void setBalance(double balance) {
 		this.balance = balance;
 	}
-
+	@Getter(name = "GetAccountName")
 	public String getAccountName() {
 		return accountName;
 	}
-
+	@Setter(name = "SetAccountName")
 	public void setAccountName(String accountName) {
 		this.accountName = accountName;
 	}
@@ -94,8 +93,8 @@ public class Account {
 
 	@Override
 	public String toString() {
-		
-		return String.format( "Id = %-8d Account Name = %-22s Owner Id = %-8d Balance = $%-8.2f", id, accountName,ownerId,balance);
+		return "Account [id=" + id + ", accountName=" + accountName + ", ownerId=" + ownerId + ", balance=" + balance
+				+ "]";
 	}
 	
 }
