@@ -15,14 +15,23 @@ import com.revature.util.HibernateUtil;
 import com.revature.util.TransactionController;
 
 public class AccountDao {
+	Connection cn = null;
+	TransactionController tc = null;
+	ObjectMapper om = null;
+	
+	
+	public AccountDao() {
+		
+		this.tc = new TransactionController();
+		this.om = new ObjectMapper();
+		ConnectionFactory.setPath("C:/Users/ryanm/Desktop/Project1/team2-project1/demo/src/main/resources");
+		this.cn = ConnectionFactory.getConnection();
+	}
 
 	public boolean insert(Account a) {
 
-		Connection cn = ConnectionFactory.getConnection();
-
-		TransactionController tc = new TransactionController();
 		
-		ObjectMapper om = new ObjectMapper();
+		
 
 		boolean inserted = om.addObjectToDB(a, cn);
 		
@@ -34,13 +43,8 @@ public class AccountDao {
 
 	public boolean update(Account a){
 		
-		Connection cn = ConnectionFactory.getConnection();
-
-		TransactionController tc = new TransactionController();
 		
-		ObjectMapper om = new ObjectMapper();
-		
-		boolean updated = om.UpdateObjectInDB(a, "id, accountName, ownerId, balance", cn);
+		boolean updated = om.UpdateObjectInDB(a, "accountName, ownerId, balance", cn);
 		
 		tc.beginCommit(cn);
 		
@@ -49,12 +53,6 @@ public class AccountDao {
 	}
 
 	public boolean delete(Account a) {
-		
-		Connection cn = ConnectionFactory.getConnection();
-
-		TransactionController tc = new TransactionController();
-		
-		ObjectMapper om = new ObjectMapper();
 	    
 		boolean deleted = om.removeObjectFromDb(a, cn);
         
@@ -65,12 +63,6 @@ public class AccountDao {
 	}
 
 	public List<Account> findAll() {
-
-		Connection cn = ConnectionFactory.getConnection();
-
-		TransactionController tc = new TransactionController();
-		
-		ObjectMapper om = new ObjectMapper();
 		
 		ArrayList<Account> arrAcc = new ArrayList<Account>();
 		
@@ -79,7 +71,6 @@ public class AccountDao {
 		for(Object o : arrObj) {
 			arrAcc.add((Account) o);
 		}
-
 		return arrAcc;
 	}
 }

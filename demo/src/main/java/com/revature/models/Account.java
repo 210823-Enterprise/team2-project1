@@ -2,31 +2,30 @@ package com.revature.models;
 
 import java.util.Objects;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.revature.annotations.Column;
+import com.revature.annotations.Entity;
+import com.revature.annotations.Id;
 
-@Entity
-@Table
+@Entity(tableName = "account")
 public class Account {
 
-	@Id
-	@Column
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+
+	@Id(columnName = "id")
+	public int id;
 	
-	@Column
-	private String accountName;
-	@Column
-	private int ownerId;
-	@Column
-	private double balance;
+	@Column(columnName = "accountName")
+	public String accountName;
+	@Column(columnName = "ownerId")
+	public int ownerId;
+	@Column(columnName = "balance")
+	public double balance;
 
 	public Account() {
 		super();
+	}
+	public Account(int id) {
+		super();
+		this.id = id;
 	}
 	public Account(String accountName, int ownerId, double balance) {
 		super();
@@ -95,8 +94,8 @@ public class Account {
 
 	@Override
 	public String toString() {
-		return "Account [id=" + id + ", accountName=" + accountName + ", ownerId=" + ownerId + ", balance=" + balance
-				+ "]";
+		
+		return String.format( "Id = %-8d Account Name = %-22s Owner Id = %-8d Balance = $%-8.2f", id, accountName,ownerId,balance);
 	}
 	
 }
