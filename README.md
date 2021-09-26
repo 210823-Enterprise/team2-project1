@@ -35,7 +35,7 @@ Next, place the following inside your project pom.xml file:
 ```XML
   <dependency>
     <groupId>com.revature</groupId>
-    <artifactId>*your-repo*_p1</artifactId>
+    <artifactId>diyORM</artifactId>
     <version>1.0-SNAPSHOT</version>
   </dependency>
 
