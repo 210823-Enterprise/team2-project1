@@ -12,6 +12,7 @@ import java.util.Map;
 
 
 import org.apache.log4j.Logger;
+import org.postgresql.util.PSQLException;
 
 public class TransactionController {
 	private static Logger log = Logger.getLogger(TransactionController.class);
@@ -100,5 +101,13 @@ public class TransactionController {
 	// Start a transaction block.
 	public void setTransaction(Connection cn) {
 		disableAutoCommit(cn);
+		String sql = "START TRANSACTION";
+		try (Statement stmt = cn.createStatement()){
+			stmt.executeQuery(sql);
+			
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			log.warn(e1);
+		}
 		}
 	}

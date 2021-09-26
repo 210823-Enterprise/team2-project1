@@ -67,7 +67,7 @@ public class ObjectGetter extends ObjectMapper {
 									field.set(thisObject, rs.getString(field.getAnnotation(Column.class).columnName()));
 								}
 							} catch (SQLException e) {
-								e.printStackTrace();
+								e.printStackTrace(); return new ArrayList<Object>();
 							}
 
 						} else if (field.getType() == int.class || field.getType() == Integer.class) {
@@ -80,7 +80,7 @@ public class ObjectGetter extends ObjectMapper {
 									field.set(thisObject, rs.getInt(field.getAnnotation(Column.class).columnName()));
 								}
 							} catch (SQLException e) {
-								e.printStackTrace();
+								e.printStackTrace(); return new ArrayList<Object>();
 							}
 						} else if (field.getType() == long.class || field.getType() == Long.class) {
 							try {
@@ -92,7 +92,7 @@ public class ObjectGetter extends ObjectMapper {
 									field.set(thisObject, rs.getLong(field.getAnnotation(Column.class).columnName()));
 								}
 							} catch (SQLException e) {
-								e.printStackTrace();
+								e.printStackTrace(); return new ArrayList<Object>();
 							}
 						} else if (field.getType() == double.class || field.getType() == Double.class) {
 							try {
@@ -104,7 +104,7 @@ public class ObjectGetter extends ObjectMapper {
 									field.set(thisObject, rs.getDouble(field.getAnnotation(Column.class).columnName()));
 								}
 							} catch (SQLException e) {
-								e.printStackTrace();
+								e.printStackTrace(); return new ArrayList<Object>();
 							}
 						} else if (field.getType() == float.class || field.getType() == Float.class) {
 							try {
@@ -116,7 +116,7 @@ public class ObjectGetter extends ObjectMapper {
 									field.set(thisObject, rs.getFloat(field.getAnnotation(Column.class).columnName()));
 								}
 							} catch (SQLException e) {
-								e.printStackTrace();
+								e.printStackTrace(); return new ArrayList<Object>();
 							}
 						} else if (field.getType() == int.class || field.getType() == Integer.class) {
 							try {
@@ -128,7 +128,7 @@ public class ObjectGetter extends ObjectMapper {
 									field.set(thisObject, rs.getInt(field.getAnnotation(Column.class).columnName()));
 								}
 							} catch (SQLException e) {
-								e.printStackTrace();
+								e.printStackTrace(); return new ArrayList<Object>();
 							}
 						} else if (field.getType() == BigDecimal.class) {
 							try {
@@ -140,7 +140,7 @@ public class ObjectGetter extends ObjectMapper {
 									field.set(thisObject, rs.getBigDecimal(field.getAnnotation(Column.class).columnName()));
 								}
 							} catch (SQLException e) {
-								e.printStackTrace();
+								e.printStackTrace(); return new ArrayList<Object>();
 							}
 						} else if (field.getType() == char.class || field.getType() == Character.class) {
 							try {
@@ -150,7 +150,7 @@ public class ObjectGetter extends ObjectMapper {
 									field.set(thisObject, rs.getString(field.getAnnotation(Column.class).columnName()).charAt(0));
 								}
 							} catch (SQLException e) {
-								e.printStackTrace();
+								e.printStackTrace(); return new ArrayList<Object>();
 							}
 						} else if (field.getType() == Date.class) {
 							try {
@@ -159,9 +159,9 @@ public class ObjectGetter extends ObjectMapper {
 									field.set(thisObject, rs.getTimestamp(field.getAnnotation(Column.class).columnName()));
 								}
 							} catch (SQLException e) {
-								//e.printStackTrace();
+								//e.printStackTrace(); return new ArrayList<Object>();
 							} catch (NullPointerException npe) {
-								npe.printStackTrace();
+								npe.printStackTrace(); return new ArrayList<Object>();
 							}
 						} else if (field.getType() == boolean.class) {
 							try {
@@ -170,7 +170,7 @@ public class ObjectGetter extends ObjectMapper {
 									field.set(thisObject, rs.getBoolean(field.getAnnotation(Column.class).columnName()));
 								}
 							} catch (SQLException e) {
-								//e.printStackTrace();
+								//e.printStackTrace(); return new ArrayList<Object>();
 							}
 						} else if (field.getType() == Boolean.class) {
 							try {
@@ -179,7 +179,7 @@ public class ObjectGetter extends ObjectMapper {
 									field.set(thisObject, rs.getBoolean(field.getAnnotation(Column.class).columnName()));
 								}
 							} catch (SQLException e) {
-								//e.printStackTrace();
+								//e.printStackTrace(); return new ArrayList<Object>();
 							}
 						} else if (field.getType() instanceof Class && ((Class<?>) field.getType()).isEnum()
 								&& field.getAnnotation(Column.class).columnName() != null && rs.getString(field.getAnnotation(Column.class).columnName()) != null) {
@@ -188,11 +188,11 @@ public class ObjectGetter extends ObjectMapper {
 								field.set(thisObject,
 										Enum.valueOf((Class<Enum>) field.getType(), rs.getString(field.getAnnotation(Column.class).columnName())));
 							} catch (SQLException e) {
-								//e.printStackTrace();
+								//e.printStackTrace(); return new ArrayList<Object>();
 							}
 						}
 					} catch (SQLException e) {
-						e.printStackTrace();
+						e.printStackTrace(); return new ArrayList<Object>();
 					}
 				}
 				Object newObj = thisObject;
@@ -201,13 +201,13 @@ public class ObjectGetter extends ObjectMapper {
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e.printStackTrace(); return new ArrayList<Object>();
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e.printStackTrace(); return new ArrayList<Object>();
 		} catch (IllegalAccessException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e.printStackTrace(); return new ArrayList<Object>();
 		}
 		return objsList;
 	}
@@ -251,7 +251,7 @@ public class ObjectGetter extends ObjectMapper {
 									field.set(thisObject, rs.getString(field.getAnnotation(Column.class).columnName()));
 								}
 							} catch (SQLException e) {
-								e.printStackTrace();
+								e.printStackTrace(); return new ArrayList<Object>();
 							}
 
 						} else if (field.getType() == int.class || field.getType() == Integer.class) {
@@ -264,7 +264,7 @@ public class ObjectGetter extends ObjectMapper {
 									field.set(thisObject, rs.getInt(field.getAnnotation(Column.class).columnName()));
 								}
 							} catch (SQLException e) {
-								e.printStackTrace();
+								e.printStackTrace(); return new ArrayList<Object>();
 							}
 						} else if (field.getType() == long.class || field.getType() == Long.class) {
 							try {
@@ -276,7 +276,7 @@ public class ObjectGetter extends ObjectMapper {
 									field.set(thisObject, rs.getLong(field.getAnnotation(Column.class).columnName()));
 								}
 							} catch (SQLException e) {
-								e.printStackTrace();
+								e.printStackTrace(); return new ArrayList<Object>();
 							}
 						} else if (field.getType() == double.class || field.getType() == Double.class) {
 							try {
@@ -288,7 +288,7 @@ public class ObjectGetter extends ObjectMapper {
 									field.set(thisObject, rs.getDouble(field.getAnnotation(Column.class).columnName()));
 								}
 							} catch (SQLException e) {
-								e.printStackTrace();
+								e.printStackTrace(); return new ArrayList<Object>();
 							}
 						} else if (field.getType() == float.class || field.getType() == Float.class) {
 							try {
@@ -300,7 +300,7 @@ public class ObjectGetter extends ObjectMapper {
 									field.set(thisObject, rs.getFloat(field.getAnnotation(Column.class).columnName()));
 								}
 							} catch (SQLException e) {
-								e.printStackTrace();
+								e.printStackTrace(); return new ArrayList<Object>();
 							}
 						} else if (field.getType() == int.class || field.getType() == Integer.class) {
 							try {
@@ -312,7 +312,7 @@ public class ObjectGetter extends ObjectMapper {
 									field.set(thisObject, rs.getInt(field.getAnnotation(Column.class).columnName()));
 								}
 							} catch (SQLException e) {
-								e.printStackTrace();
+								e.printStackTrace(); return new ArrayList<Object>();
 							}
 						} else if (field.getType() == BigDecimal.class) {
 							try {
@@ -324,7 +324,7 @@ public class ObjectGetter extends ObjectMapper {
 									field.set(thisObject, rs.getBigDecimal(field.getAnnotation(Column.class).columnName()));
 								}
 							} catch (SQLException e) {
-								e.printStackTrace();
+								e.printStackTrace(); return new ArrayList<Object>();
 							}
 						} else if (field.getType() == char.class || field.getType() == Character.class) {
 							try {
@@ -334,7 +334,7 @@ public class ObjectGetter extends ObjectMapper {
 									field.set(thisObject, rs.getString(field.getAnnotation(Column.class).columnName()).charAt(0));
 								}
 							} catch (SQLException e) {
-								e.printStackTrace();
+								e.printStackTrace(); return new ArrayList<Object>();
 							}
 						} else if (field.getType() == Date.class) {
 							try {
@@ -343,9 +343,9 @@ public class ObjectGetter extends ObjectMapper {
 									field.set(thisObject, rs.getTimestamp(field.getAnnotation(Column.class).columnName()));
 								}
 							} catch (SQLException e) {
-								//e.printStackTrace();
+								//e.printStackTrace(); return new ArrayList<Object>();
 							} catch (NullPointerException npe) {
-								npe.printStackTrace();
+								npe.printStackTrace(); return new ArrayList<Object>();
 							}
 						} else if (field.getType() == boolean.class) {
 							try {
@@ -354,7 +354,7 @@ public class ObjectGetter extends ObjectMapper {
 									field.set(thisObject, rs.getBoolean(field.getAnnotation(Column.class).columnName()));
 								}
 							} catch (SQLException e) {
-								//e.printStackTrace();
+								//e.printStackTrace(); return new ArrayList<Object>();
 							}
 						} else if (field.getType() == Boolean.class) {
 							try {
@@ -363,7 +363,7 @@ public class ObjectGetter extends ObjectMapper {
 									field.set(thisObject, rs.getBoolean(field.getAnnotation(Column.class).columnName()));
 								}
 							} catch (SQLException e) {
-								//e.printStackTrace();
+								//e.printStackTrace(); return new ArrayList<Object>();
 							}
 						} else if (field.getType() instanceof Class && ((Class<?>) field.getType()).isEnum()
 								&& field.getAnnotation(Column.class).columnName() != null && rs.getString(field.getAnnotation(Column.class).columnName()) != null) {
@@ -372,11 +372,11 @@ public class ObjectGetter extends ObjectMapper {
 								field.set(thisObject,
 										Enum.valueOf((Class<Enum>) field.getType(), rs.getString(field.getAnnotation(Column.class).columnName())));
 							} catch (SQLException e) {
-								//e.printStackTrace();
+								//e.printStackTrace(); return new ArrayList<Object>();
 							}
 						}
 					} catch (SQLException e) {
-						e.printStackTrace();
+						e.printStackTrace(); return new ArrayList<Object>();
 					}
 				}
 				Object newObj = thisObject;
@@ -385,13 +385,13 @@ public class ObjectGetter extends ObjectMapper {
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e.printStackTrace(); return new ArrayList<Object>();
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e.printStackTrace(); return new ArrayList<Object>();
 		} catch (IllegalAccessException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e.printStackTrace(); return new ArrayList<Object>();
 		}
 		return objsList;
 
@@ -415,7 +415,7 @@ public class ObjectGetter extends ObjectMapper {
 									field.set(thisObject, rs.getString(field.getAnnotation(Column.class).columnName()));
 								}
 							} catch (SQLException e) {
-								e.printStackTrace();
+								e.printStackTrace(); return new ArrayList<Object>();
 							}
 
 						} else if (field.getType() == int.class || field.getType() == Integer.class) {
@@ -428,7 +428,7 @@ public class ObjectGetter extends ObjectMapper {
 									field.set(thisObject, rs.getInt(field.getAnnotation(Column.class).columnName()));
 								}
 							} catch (SQLException e) {
-								e.printStackTrace();
+								e.printStackTrace(); return new ArrayList<Object>();
 							}
 						} else if (field.getType() == long.class || field.getType() == Long.class) {
 							try {
@@ -440,7 +440,7 @@ public class ObjectGetter extends ObjectMapper {
 									field.set(thisObject, rs.getLong(field.getAnnotation(Column.class).columnName()));
 								}
 							} catch (SQLException e) {
-								e.printStackTrace();
+								e.printStackTrace(); return new ArrayList<Object>();
 							}
 						} else if (field.getType() == double.class || field.getType() == Double.class) {
 							try {
@@ -452,7 +452,7 @@ public class ObjectGetter extends ObjectMapper {
 									field.set(thisObject, rs.getDouble(field.getAnnotation(Column.class).columnName()));
 								}
 							} catch (SQLException e) {
-								e.printStackTrace();
+								e.printStackTrace(); return new ArrayList<Object>();
 							}
 						} else if (field.getType() == float.class || field.getType() == Float.class) {
 							try {
@@ -464,7 +464,7 @@ public class ObjectGetter extends ObjectMapper {
 									field.set(thisObject, rs.getFloat(field.getAnnotation(Column.class).columnName()));
 								}
 							} catch (SQLException e) {
-								e.printStackTrace();
+								e.printStackTrace(); return new ArrayList<Object>();
 							}
 						} else if (field.getType() == int.class || field.getType() == Integer.class) {
 							try {
@@ -476,7 +476,7 @@ public class ObjectGetter extends ObjectMapper {
 									field.set(thisObject, rs.getInt(field.getAnnotation(Column.class).columnName()));
 								}
 							} catch (SQLException e) {
-								e.printStackTrace();
+								e.printStackTrace(); return new ArrayList<Object>();
 							}
 						} else if (field.getType() == BigDecimal.class) {
 							try {
@@ -488,7 +488,7 @@ public class ObjectGetter extends ObjectMapper {
 									field.set(thisObject, rs.getBigDecimal(field.getAnnotation(Column.class).columnName()));
 								}
 							} catch (SQLException e) {
-								e.printStackTrace();
+								e.printStackTrace(); return new ArrayList<Object>();
 							}
 						} else if (field.getType() == char.class || field.getType() == Character.class) {
 							try {
@@ -498,7 +498,7 @@ public class ObjectGetter extends ObjectMapper {
 									field.set(thisObject, rs.getString(field.getAnnotation(Column.class).columnName()).charAt(0));
 								}
 							} catch (SQLException e) {
-								e.printStackTrace();
+								e.printStackTrace(); return new ArrayList<Object>();
 							}
 						} else if (field.getType() == Date.class) {
 							try {
@@ -507,9 +507,9 @@ public class ObjectGetter extends ObjectMapper {
 									field.set(thisObject, rs.getTimestamp(field.getAnnotation(Column.class).columnName()));
 								}
 							} catch (SQLException e) {
-								//e.printStackTrace();
+								//e.printStackTrace(); return new ArrayList<Object>();
 							} catch (NullPointerException npe) {
-								npe.printStackTrace();
+								npe.printStackTrace(); return new ArrayList<Object>();
 							}
 						} else if (field.getType() == boolean.class) {
 							try {
@@ -518,7 +518,7 @@ public class ObjectGetter extends ObjectMapper {
 									field.set(thisObject, rs.getBoolean(field.getAnnotation(Column.class).columnName()));
 								}
 							} catch (SQLException e) {
-								//e.printStackTrace();
+								//e.printStackTrace(); return new ArrayList<Object>();
 							}
 						} else if (field.getType() == Boolean.class) {
 							try {
@@ -527,7 +527,7 @@ public class ObjectGetter extends ObjectMapper {
 									field.set(thisObject, rs.getBoolean(field.getAnnotation(Column.class).columnName()));
 								}
 							} catch (SQLException e) {
-								//e.printStackTrace();
+								//e.printStackTrace(); return new ArrayList<Object>();
 							}
 						} else if (field.getType() instanceof Class && ((Class<?>) field.getType()).isEnum()
 								&& field.getAnnotation(Column.class).columnName() != null && rs.getString(field.getAnnotation(Column.class).columnName()) != null) {
@@ -536,11 +536,11 @@ public class ObjectGetter extends ObjectMapper {
 								field.set(thisObject,
 										Enum.valueOf((Class<Enum>) field.getType(), rs.getString(field.getAnnotation(Column.class).columnName())));
 							} catch (SQLException e) {
-								//e.printStackTrace();
+								//e.printStackTrace(); return new ArrayList<Object>();
 							}
 						}
 					} catch (SQLException e) {
-						e.printStackTrace();
+						e.printStackTrace(); return new ArrayList<Object>();
 					}
 				}
 				Object newObj = thisObject;
@@ -549,13 +549,13 @@ public class ObjectGetter extends ObjectMapper {
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e.printStackTrace(); return new ArrayList<Object>();
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e.printStackTrace(); return new ArrayList<Object>();
 		} catch (IllegalAccessException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e.printStackTrace(); return new ArrayList<Object>();
 		}
 		return objsList;
 

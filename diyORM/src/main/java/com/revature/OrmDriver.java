@@ -28,7 +28,7 @@ public class OrmDriver {
 		Configuration cfg = new Configuration();
 		Connection cn = ConnectionFactory.getConnection();
 
-//		TransactionController tc = new TransactionController();
+		TransactionController tc = new TransactionController();
 //		//Test2 test = new Test2(25,"UpdatedUser","UpdatedPass",500.00);
 //		FieldCheck field = new FieldCheck("test", "testpass", 'c',new Date());
 		ObjectMapper om = new ObjectMapper();
@@ -53,9 +53,19 @@ public class OrmDriver {
 		 * Add all from db to cache
 		 */
 		List<Account> accounts = new ArrayList<>();
+		Account a = new Account("bank",5,50);
+		//tc.setTransaction(cn);
+		om.addObjectToDB(a, cn);
+		try {
+			System.out.println(cn.getAutoCommit());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		System.out.println(om.getListObjectFromDB(Account.class, cn));
-		System.out.println(om.getListObjectFromDB(Test.class, cn));
+		System.out.println("1 "+ om.getListObjectFromDB(Account.class, cn));
+		tc.beginCommit(cn);
+		System.out.println("2 "+om.getListObjectFromDB(Account.class, cn));
 		//System.out.println(ObjectCache.getCache());
 		
 
