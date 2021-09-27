@@ -93,32 +93,32 @@ Finally, inside your project structure you need a application.proprties file.
      - Adds a table to the database using the fields as columns.  
   - #### `public boolean UpdateObjectInDB(final Object obj, final String update_columns, Connection conn)`  
      - Updates the given object in the databse. Update columns is a comma seperated list for all columns in the object which needs to be updated
-  - #### `public boolean removeObjectFromDB(final Object obj)`  
+  - #### `public boolean removeObjectFromDB(final Object obj, Connection conn)`  
      - Removes the given object from the database.  
-  - #### `public boolean addObjectToDB(final Object obj)`  
+  - #### `public boolean addObjectToDB(final Object obj, Connection conn)`  
      - Adds the given object to the database.  
-  - #### `public List<Object> getListObjectFromDB(final Class <?> clazz, final String columns, final String conditions)`  
-  - #### `public List<Object> getListObjectFromDB(final Class <?> clazz, final String columns, final String conditions,final String operators)`  
-  - #### `public List<Object> getListObjectFromDB(final Class<?> clazz)`  
+  - #### `public List<Object> getListObjectFromDB(final Class <?> clazz, final String columns, final String conditions, Connection cn)`  
+  - #### `public List<Object> getListObjectFromDB(final Class <?> clazz, final String columns, final String conditions,final String operators, Connection cn)`  
+  - #### `public List<Object> getListObjectFromDB(final Class<?> clazz, Connection cn)`  
      - Gets a list of all objects in the database which match the included search criteria  
         - columns - comma seperated list of columns to search by.  
         - conditions - coma seperated list the values the columns should match to.  
         - operators - comma seperated list of operators to apply to columns (AND/OR) in order that they should be applied.  
-  - #### `public void beginCommit()`  
+  - #### `public void beginCommit(Connection cn)`  
      - Begin databse commit.
-  - #### `public void Rollback()`  
+  - #### `public void Rollback(Connection cn)`  
      - Rollback to previous commit.
-  - #### `public void Rollback(final String name)`  
+  - #### `public void Rollback(final String name, Connection cn)`  
      - Rollback to previous commit with given name.
-  - #### `public void setSavepoint(final String name)`  
+  - #### `public void setSavepoint(final String name, Connection cn)`  
      - Set a savepoint with the given name.
-  - #### `public void ReleaseSavepoint(final String name)`  
+  - #### `public void ReleaseSavepoint(final String name, Connection cn)`  
      - Release the savepoint with the given name.  
-  - #### `public void enableAutoCommit()`  
+  - #### `public void enableAutoCommit(Connection cn)`  
      - Enable auto commits on the database.  
-  - #### `public void setTransaction()`  
+  - #### `public void setTransaction(Connection cn)`  
      - Start a transaction block.  
-  - #### `public void addAllFromDBToCache(final Class<?> clazz)`  
+  - #### `public void addAllFromDBToCache(final Class<?> clazz, Connection cn)`  
      - Adds all objects currently in the databse of the given class type to the cache.  
 
 
