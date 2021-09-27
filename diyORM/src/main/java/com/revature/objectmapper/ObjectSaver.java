@@ -224,7 +224,7 @@ public class ObjectSaver extends ObjectMapper {
 	public boolean addObjectToDB(final Object obj, Connection conn) {
 		// check if table exists
 		try {
-			if (!tableExists(conn, obj.getClass().getAnnotation(Entity.class).tableName())) {
+			if (!(tableExists(conn, obj.getClass().getAnnotation(Entity.class).tableName()))) {
 				addTableToDB(obj, conn);
 			}
 		} catch (SQLException e1) {
