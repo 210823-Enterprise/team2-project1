@@ -215,7 +215,7 @@ public class ObjectGetter extends ObjectMapper {
 	
 	public List<Object> getListObjectFromDB(final Class<?> clazz, final String columns,
 			final String conditions, Connection cn) {
-		String sql = "SELECT " + columns + " FROM " + clazz.getSimpleName() + " WHERE " + conditions;
+		String sql = "SELECT " + columns + " FROM " + clazz.getAnnotation(Entity.class).tableName() + " WHERE " + conditions;
 		
 		List<Object> objsList = new ArrayList<Object>();
 		String[] arrColumns = columns.split(",");

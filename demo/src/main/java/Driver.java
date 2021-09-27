@@ -4,23 +4,21 @@ import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.postgresql.util.PSQLException;
-
 import com.revature.annotations.Column;
 import com.revature.annotations.Id;
-import com.revature.dummymodels.Test;
+import com.revature.exceptions.NotInCacheException;
 import com.revature.models.Account;
+import com.revature.objectmapper.ObjectCache;
 import com.revature.objectmapper.ObjectMapper;
-import com.revature.util.Configuration;
 import com.revature.util.ConnectionFactory;
 import com.revature.util.TransactionController;
 
 public class Driver {
 	public static void main(String[] args) {
-		Configuration cfg = new Configuration();
-		Connection cn = ConnectionFactory.getConnection();
+		
 		ObjectMapper om = new ObjectMapper();
 		TransactionController tc = new TransactionController();
+		Connection cn = ConnectionFactory.getConnection();
 		
 		System.out.println("============================================================================");
 		System.out.println("========================= Transaction Demo =================================");
@@ -78,6 +76,7 @@ public class Driver {
 		for (Account a: accounts) {
 			om.addObjectToDB(a, cn);
 		}
+		tc.setSavepoint("321", cn);
 		System.out.println("\n============================================================================");
 		System.out.println("================ Database State, Transaction Pending =======================");
 		for (Object o:om.getListObjectFromDB(Account.class, cn)) {
@@ -144,6 +143,18 @@ public class Driver {
 				}
 			}
 			System.out.println("\n============================================================================\n");
+			System.out.println("===================== Caching: Loading Into Cache... =======================");
+			
+			try {
+				ObjectCache.addAllFromDBToCache(Account.class, cn);
+			} catch (NotInCacheException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println("\n.....\n");
+			System.out.println("===================== Caching: Printing from Cache... =======================");
+			System.out.println(ObjectCache.getCache());
+			
 		}
 		
 	}
