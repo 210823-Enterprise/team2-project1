@@ -1036,3 +1036,85 @@
 2021-09-26 18:11:27 INFO  revature.objectmapper.ObjectSaver:269} - SQL INSERT called with query: INSERT INTO "account123" ( accountName, ownerId, balance ) values (?,?,?);
 2021-09-26 18:11:27 INFO  revature.objectmapper.ObjectSaver:412} - INSERT OBJECT IN DB SUCCESFUL
 2021-09-26 18:11:27 INFO  revature.util.TransactionController:68} - Rollback committed
+2021-09-26 19:49:07 INFO  revature.util.ConnectionFactory:48} - Database Connection Established with path: jdbc:postgresql://team-2-ncc.cvtq9j4axrge.us-east-1.rds.amazonaws.com:5432/postgres?currentSchema=team2project1
+2021-09-26 19:49:07 WARN  revature.util.TransactionController:110} - org.postgresql.util.PSQLException: No results were returned by the query.
+2021-09-26 19:49:07 INFO  revature.objectmapper.ObjectSaver:269} - SQL INSERT called with query: INSERT INTO "account" ( accountName, ownerId, balance ) values (?,?,?);
+2021-09-26 19:49:07 INFO  revature.objectmapper.ObjectSaver:412} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-26 19:49:07 INFO  revature.objectmapper.ObjectSaver:269} - SQL INSERT called with query: INSERT INTO "account" ( accountName, ownerId, balance ) values (?,?,?);
+2021-09-26 19:49:07 INFO  revature.objectmapper.ObjectSaver:412} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-26 19:49:07 INFO  revature.objectmapper.ObjectSaver:269} - SQL INSERT called with query: INSERT INTO "account" ( accountName, ownerId, balance ) values (?,?,?);
+2021-09-26 19:49:07 INFO  revature.objectmapper.ObjectSaver:412} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-26 19:49:07 INFO  revature.objectmapper.ObjectSaver:269} - SQL INSERT called with query: INSERT INTO "account" ( accountName, ownerId, balance ) values (?,?,?);
+2021-09-26 19:49:07 INFO  revature.objectmapper.ObjectSaver:412} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-26 19:49:07 WARN  revature.util.TransactionController:110} - org.postgresql.util.PSQLException: No results were returned by the query.
+2021-09-26 19:49:07 INFO  revature.objectmapper.ObjectSaver:269} - SQL INSERT called with query: INSERT INTO "account" ( accountName, ownerId, balance ) values (?,?,?);
+2021-09-26 19:49:07 INFO  revature.objectmapper.ObjectSaver:412} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-26 19:49:07 INFO  revature.objectmapper.ObjectSaver:269} - SQL INSERT called with query: INSERT INTO "account" ( accountName, ownerId, balance ) values (?,?,?);
+2021-09-26 19:49:08 INFO  revature.objectmapper.ObjectSaver:412} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-26 19:49:08 INFO  revature.objectmapper.ObjectSaver:269} - SQL INSERT called with query: INSERT INTO "account" ( accountName, ownerId, balance ) values (?,?,?);
+2021-09-26 19:49:08 INFO  revature.objectmapper.ObjectSaver:412} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-26 19:49:08 INFO  revature.objectmapper.ObjectSaver:269} - SQL INSERT called with query: INSERT INTO "account" ( accountName, ownerId, balance ) values (?,?,?);
+2021-09-26 19:49:08 INFO  revature.objectmapper.ObjectSaver:412} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-26 19:49:08 INFO  revature.util.TransactionController:68} - Rollback committed
+2021-09-26 19:50:15 INFO  revature.util.ConnectionFactory:48} - Database Connection Established with path: jdbc:postgresql://team-2-ncc.cvtq9j4axrge.us-east-1.rds.amazonaws.com:5432/postgres?currentSchema=team2project1
+2021-09-26 19:50:15 WARN  revature.util.TransactionController:110} - org.postgresql.util.PSQLException: No results were returned by the query.
+2021-09-26 19:50:15 INFO  revature.objectmapper.ObjectSaver:477} - Database Table created with query: DROP Table IF EXISTS account; Create Table account (id Serial, accountName varchar(255), ownerId INTEGER, balance BIGINT);
+2021-09-26 19:50:15 INFO  revature.objectmapper.ObjectSaver:269} - SQL INSERT called with query: INSERT INTO "account" ( accountName, ownerId, balance ) values (?,?,?);
+2021-09-26 19:50:15 INFO  revature.objectmapper.ObjectSaver:412} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-26 19:50:16 INFO  revature.objectmapper.ObjectSaver:269} - SQL INSERT called with query: INSERT INTO "account" ( accountName, ownerId, balance ) values (?,?,?);
+2021-09-26 19:50:16 INFO  revature.objectmapper.ObjectSaver:412} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-26 19:50:16 INFO  revature.objectmapper.ObjectSaver:269} - SQL INSERT called with query: INSERT INTO "account" ( accountName, ownerId, balance ) values (?,?,?);
+2021-09-26 19:50:16 INFO  revature.objectmapper.ObjectSaver:412} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-26 19:50:16 INFO  revature.objectmapper.ObjectSaver:269} - SQL INSERT called with query: INSERT INTO "account" ( accountName, ownerId, balance ) values (?,?,?);
+2021-09-26 19:50:16 INFO  revature.objectmapper.ObjectSaver:412} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-26 19:50:16 WARN  revature.util.TransactionController:110} - org.postgresql.util.PSQLException: No results were returned by the query.
+2021-09-26 19:50:16 INFO  revature.objectmapper.ObjectSaver:269} - SQL INSERT called with query: INSERT INTO "account" ( accountName, ownerId, balance ) values (?,?,?);
+2021-09-26 19:50:16 INFO  revature.objectmapper.ObjectSaver:412} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-26 19:50:16 INFO  revature.objectmapper.ObjectSaver:269} - SQL INSERT called with query: INSERT INTO "account" ( accountName, ownerId, balance ) values (?,?,?);
+2021-09-26 19:50:16 INFO  revature.objectmapper.ObjectSaver:412} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-26 19:50:16 INFO  revature.objectmapper.ObjectSaver:269} - SQL INSERT called with query: INSERT INTO "account" ( accountName, ownerId, balance ) values (?,?,?);
+2021-09-26 19:50:16 INFO  revature.objectmapper.ObjectSaver:412} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-26 19:50:16 INFO  revature.objectmapper.ObjectSaver:269} - SQL INSERT called with query: INSERT INTO "account" ( accountName, ownerId, balance ) values (?,?,?);
+2021-09-26 19:50:16 INFO  revature.objectmapper.ObjectSaver:412} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-26 19:50:17 INFO  revature.util.TransactionController:68} - Rollback committed
+2021-09-26 19:51:46 INFO  revature.util.ConnectionFactory:48} - Database Connection Established with path: jdbc:postgresql://team-2-ncc.cvtq9j4axrge.us-east-1.rds.amazonaws.com:5432/postgres?currentSchema=team2project1
+2021-09-26 19:51:46 WARN  revature.util.TransactionController:110} - org.postgresql.util.PSQLException: No results were returned by the query.
+2021-09-26 19:51:46 INFO  revature.objectmapper.ObjectSaver:269} - SQL INSERT called with query: INSERT INTO "account" ( accountName, ownerId, balance ) values (?,?,?);
+2021-09-26 19:51:46 INFO  revature.objectmapper.ObjectSaver:412} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-26 19:51:46 INFO  revature.objectmapper.ObjectSaver:269} - SQL INSERT called with query: INSERT INTO "account" ( accountName, ownerId, balance ) values (?,?,?);
+2021-09-26 19:51:46 INFO  revature.objectmapper.ObjectSaver:412} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-26 19:51:46 INFO  revature.objectmapper.ObjectSaver:269} - SQL INSERT called with query: INSERT INTO "account" ( accountName, ownerId, balance ) values (?,?,?);
+2021-09-26 19:51:46 INFO  revature.objectmapper.ObjectSaver:412} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-26 19:51:47 INFO  revature.objectmapper.ObjectSaver:269} - SQL INSERT called with query: INSERT INTO "account" ( accountName, ownerId, balance ) values (?,?,?);
+2021-09-26 19:51:47 INFO  revature.objectmapper.ObjectSaver:412} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-26 19:51:47 WARN  revature.util.TransactionController:110} - org.postgresql.util.PSQLException: No results were returned by the query.
+2021-09-26 19:51:47 INFO  revature.objectmapper.ObjectSaver:269} - SQL INSERT called with query: INSERT INTO "account" ( accountName, ownerId, balance ) values (?,?,?);
+2021-09-26 19:51:47 INFO  revature.objectmapper.ObjectSaver:412} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-26 19:51:47 INFO  revature.objectmapper.ObjectSaver:269} - SQL INSERT called with query: INSERT INTO "account" ( accountName, ownerId, balance ) values (?,?,?);
+2021-09-26 19:51:47 INFO  revature.objectmapper.ObjectSaver:412} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-26 19:51:47 INFO  revature.objectmapper.ObjectSaver:269} - SQL INSERT called with query: INSERT INTO "account" ( accountName, ownerId, balance ) values (?,?,?);
+2021-09-26 19:51:47 INFO  revature.objectmapper.ObjectSaver:412} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-26 19:51:47 INFO  revature.objectmapper.ObjectSaver:269} - SQL INSERT called with query: INSERT INTO "account" ( accountName, ownerId, balance ) values (?,?,?);
+2021-09-26 19:51:47 INFO  revature.objectmapper.ObjectSaver:412} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-26 19:51:47 INFO  revature.util.TransactionController:68} - Rollback committed
+2021-09-26 19:52:06 INFO  revature.util.ConnectionFactory:48} - Database Connection Established with path: jdbc:postgresql://team-2-ncc.cvtq9j4axrge.us-east-1.rds.amazonaws.com:5432/postgres?currentSchema=team2project1
+2021-09-26 19:52:06 WARN  revature.util.TransactionController:110} - org.postgresql.util.PSQLException: No results were returned by the query.
+2021-09-26 19:52:06 INFO  revature.objectmapper.ObjectSaver:477} - Database Table created with query: DROP Table IF EXISTS account; Create Table account (id Serial, accountName varchar(255), ownerId INTEGER, balance BIGINT);
+2021-09-26 19:52:06 INFO  revature.objectmapper.ObjectSaver:269} - SQL INSERT called with query: INSERT INTO "account" ( accountName, ownerId, balance ) values (?,?,?);
+2021-09-26 19:52:06 INFO  revature.objectmapper.ObjectSaver:412} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-26 19:52:06 INFO  revature.objectmapper.ObjectSaver:269} - SQL INSERT called with query: INSERT INTO "account" ( accountName, ownerId, balance ) values (?,?,?);
+2021-09-26 19:52:06 INFO  revature.objectmapper.ObjectSaver:412} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-26 19:52:06 INFO  revature.objectmapper.ObjectSaver:269} - SQL INSERT called with query: INSERT INTO "account" ( accountName, ownerId, balance ) values (?,?,?);
+2021-09-26 19:52:06 INFO  revature.objectmapper.ObjectSaver:412} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-26 19:52:06 INFO  revature.objectmapper.ObjectSaver:269} - SQL INSERT called with query: INSERT INTO "account" ( accountName, ownerId, balance ) values (?,?,?);
+2021-09-26 19:52:06 INFO  revature.objectmapper.ObjectSaver:412} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-26 19:52:07 WARN  revature.util.TransactionController:110} - org.postgresql.util.PSQLException: No results were returned by the query.
+2021-09-26 19:52:07 INFO  revature.objectmapper.ObjectSaver:269} - SQL INSERT called with query: INSERT INTO "account" ( accountName, ownerId, balance ) values (?,?,?);
+2021-09-26 19:52:07 INFO  revature.objectmapper.ObjectSaver:412} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-26 19:52:07 INFO  revature.objectmapper.ObjectSaver:269} - SQL INSERT called with query: INSERT INTO "account" ( accountName, ownerId, balance ) values (?,?,?);
+2021-09-26 19:52:07 INFO  revature.objectmapper.ObjectSaver:412} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-26 19:52:07 INFO  revature.objectmapper.ObjectSaver:269} - SQL INSERT called with query: INSERT INTO "account" ( accountName, ownerId, balance ) values (?,?,?);
+2021-09-26 19:52:07 INFO  revature.objectmapper.ObjectSaver:412} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-26 19:52:07 INFO  revature.objectmapper.ObjectSaver:269} - SQL INSERT called with query: INSERT INTO "account" ( accountName, ownerId, balance ) values (?,?,?);
+2021-09-26 19:52:07 INFO  revature.objectmapper.ObjectSaver:412} - INSERT OBJECT IN DB SUCCESFUL
+2021-09-26 19:52:07 INFO  revature.util.TransactionController:68} - Rollback committed

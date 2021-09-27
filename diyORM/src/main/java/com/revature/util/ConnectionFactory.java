@@ -12,7 +12,7 @@ import org.apache.log4j.Logger;
 public class ConnectionFactory {
 	private static BasicDataSource ds = new BasicDataSource();
     private static Logger log = Logger.getLogger(ConnectionFactory.class);
-    public static String path = "jdbc:postgresql://enterprise210823.cvtq9j4axrge.us-east-1.rds.amazonaws.com:5432/postgres?currentSchema=team2project1";
+    public static String path = "jdbc:postgresql://team-2-ncc.cvtq9j4axrge.us-east-1.rds.amazonaws.com:5432/postgres?currentSchema=team2project1";
     private static final ConnectionFactory connection_factory = new ConnectionFactory();
     static {
     	try {

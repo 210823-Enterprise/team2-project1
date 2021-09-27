@@ -52,11 +52,12 @@ public class Driver {
 			om.addObjectToDB(a, cn);
 		}
 		System.out.println("\n============================================================================");
-		System.out.println("================ Database State, first transaction =========================");
+		System.out.println("================ Database State, first group of accounts ===================");
 		for (Object o:om.getListObjectFromDB(Account.class, cn)) {
 			System.out.println(o);
 		}
 		tc.beginCommit(cn);
+		
 		System.out.println("\n============================================================================");
 		System.out.println("================ Accounts added to second transaction ======================");
 		accounts = new ArrayList<>();
@@ -142,20 +143,19 @@ public class Driver {
 					e.printStackTrace();
 				}
 			}
-			System.out.println("\n============================================================================\n");
-			System.out.println("===================== Caching: Loading Into Cache... =======================");
-			
-			try {
-				ObjectCache.addAllFromDBToCache(Account.class, cn);
-			} catch (NotInCacheException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			System.out.println("\n.....\n");
-			System.out.println("===================== Caching: Printing from Cache... =======================");
-			System.out.println(ObjectCache.getCache());
-			
 		}
+		System.out.println("\n============================================================================\n");
+		System.out.println("===================== Caching: Loading Into Cache... =======================");
+		
+		try {
+			ObjectCache.addAllFromDBToCache(Account.class, cn);
+		} catch (NotInCacheException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("\n.....\n");
+		System.out.println("===================== Caching: Printing from Cache... =======================");
+		System.out.println(ObjectCache.getCache());
 		
 	}
 	
