@@ -1,7 +1,7 @@
 # diyORM
 
 ## Project Description
-A java based ORM for simplifying connecting to and from a postgres database without the need for SQL or connection management. Servlet demo - https://github.com/210823-Enterprise/team2-project1/demo
+A java based ORM for simplifying connecting to and from a postgres database without the need for SQL or connection management. Servlet demo and console demo - https://github.com/210823-Enterprise/team2-project1/demo
 
 ## Technologies Used
 
